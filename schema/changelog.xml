@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <include file="scripts/schema.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/002_insert_data_to_term_types.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/003_insert_data_to_courses.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/004_add_indexes_on_termId_and_professorId_in_offerings.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/005_insert_data_to_professors.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/006_alter_table_add_unique_to_offerings.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/007_delete_data_from_term_types_and_insert_new_data.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/008_insert_data_to_offerings.sql"
+             relativeToChangelogFile="true"/>
+
+</databaseChangeLog>
