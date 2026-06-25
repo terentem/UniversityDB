@@ -38,4 +38,8 @@ build/
 .DS_Store
 
 # Local scripts
-schema/scripts/run.txt
+schema/run.txt
+
+# Игнорируем файл с паролями от базы данных
+settings.properties
+src/main/resources/settings.properties
