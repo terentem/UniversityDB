@@ -1,8 +1,8 @@
 package org.example.domain.dto;
 
-public record ProfessorDto(
+public record ProfessorDto (
         Long id,
         String name,
         String email,
-        Long departmentId) {
+        Long departmentId) implements UniversityDto{
 }

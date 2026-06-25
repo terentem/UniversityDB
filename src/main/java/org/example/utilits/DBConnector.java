@@ -1,4 +1,4 @@
-package org.example.util;
+package org.example.utilits;
 
 import java.io.InputStream;
 import java.sql.Connection;

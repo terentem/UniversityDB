@@ -17,13 +17,13 @@ public class ResultCreator {
         String sql = "";
         SqlScript script = new SqlScript();
         sql = script.getSql(parameter);
+        System.out.println("script=" + sql);
 
         List<ProfessorDto> professors = new ArrayList<>();
 
         // Правильный синтаксис try-with-resources для автоматического закрытия stmt и rs
         try (PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
-
             while (rs.next()) {
                 ProfessorDto p = new ProfessorDto(
                         rs.getLong("id"),
