@@ -1,0 +1,6 @@
+docker run --rm -v ${PWD}/schema:/liquibase/changelog liquibase/liquibase --url=jdbc:postgresql://host.docker.internal:5433/university_db --username=postgres --password=<PASSWORD> --changeLogFile=changelog.xml --classpath=/liquibase/changelog/postgresql-42.7.10.jar --secure-parsing=false  update
+
+docker run --name university_postgres -p 5433:5432 -e POSTGRES_DB=university_db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=<PASSWORD> -v "$($pwd.Path)\schema\data:/var/lib/postgresql/csv_data" -d postgres:18.3
+
+docker exec -it postgresLocalhost psql -U postgres
+ALTER USER postgres WITH PASSWORD 'MyNewPassword123!';

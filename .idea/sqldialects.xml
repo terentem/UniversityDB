@@ -2,5 +2,13 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/schema/scripts/002_insert_data_to_term_types.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/002_insert_data_to_term_types.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/003_insert_data_to_courses.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/004_add_indexes_on_termId_and_professorId_in_offerings.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/005_insert_data_to_professors.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/006_alter_table_add_unique_to_offerings.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/007_delete_data_from_term_types_and_insert_new_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/008_insert_data_to_offerings.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/schema.sql" dialect="GenericSQL" />
   </component>
 </project>

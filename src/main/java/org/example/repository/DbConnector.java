@@ -1,4 +1,4 @@
-package org.example.utilits;
+package org.example.repository;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBConnector {
+public class DbConnector {
 
     private static String dbUrl;
     private static String dbUser;
@@ -20,7 +20,7 @@ public class DBConnector {
 
             // 2. Шлях до файлу з параметрами підключення до БД
             Properties props = new Properties();
-            try (InputStream input = DBConnector.class.getClassLoader().getResourceAsStream("settings.properties")) {
+            try (InputStream input = DbConnector.class.getClassLoader().getResourceAsStream("settings.properties")) {
                 if (input == null) {
                     throw new RuntimeException("Sorry, unable to find settings file");
                 }

@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: University Professor Service API
+  version: 1.0.0
+  description: API для управління даними професорів університету за допомогою Servlet API та Statement.
+
+servers:
+  - url: http://localhost:8080
+    description: Локальний сервер Tomcat
+
+paths:
+  /professor:
+    get:
+      summary: Отримати список професорів або виконати пошук
+      description: |
+        Повертає список професорів. Якщо параметри відсутні — повертає повний список.
+        Якщо передано `name` або `email` — виконує відповідну фільтрацію.
+        Результат повертається у вигляді полегшеного DTO (лише ім'я та емейл).
+      parameters:
+        - name: name
+          in: query
+          required: false
+          description: Ім'я професора для фільтрації (наприклад, Diana Bishop)
+          schema:
+            type: string
+        - name: email
+          in: query
+          required: false
+          description: Емейл професора для фільтрації (наприклад, db@oxford.edu)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Успішне отримання списку професорів
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GetProfessorDto'
+        '500':
+          description: Внутрішня помилка сервера або бази даних
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    post:
+      summary: Створити нового професора
+      description: |
+        Приймає параметри нового професора, виконує валідацію на кількість параметрів (має бути рівно 3)
+        та додає запис до бази даних через Statement.executeUpdate().
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: Повне ім'я нового професора
+          schema:
+            type: string
+          example: Isac Molibden
+        - name: email
+          in: query
+          required: true
+          description: Електронна адреса нового професора
+          schema:
+            type: string
+          example: im@oxford.edu
+        - name: department_id
+          in: query
+          required: true
+          description: Ідентифікатор кафедри/департаменту
+          schema:
+            type: integer
+          example: 5
+      responses:
+        '201':
+          description: Професора успішно створено
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Professor'
+        '400':
+          description: Помилка валідації (невірна кількість або формат параметрів)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Внутрішня помилка сервера або помилка виконання SQL-інсерту
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    GetProfessorDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Diana Bishop
+        email:
+          type: string
+          example: db@oxford.edu
+      required:
+        - name
+        - email
+
+    Professor:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0
+        name:
+          type: string
+          example: Isac Molibden
+        email:
+          type: string
+          example: im@osford.edu
+        departmentId:
+          type: integer
+          example: 5
+      required:
+        - id
+        - name
+        - email
+        - departmentId
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Invalid parameters count or format. Expected name,email,department_id
