@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -29,14 +30,15 @@ public class DispatcherController extends HttpServlet {
         ThreadContext.put("X-Flow-Id", correlationId);
         try {
             String path = rq.path();
+            String query = Objects.toString(request.getQueryString(), "")
+                    .replaceAll("[\r\n]", "_");
             switch (path) {
                 case "/professor":
                     log.info(
                             "Incoming request. method={}, url={}?{}",
                             rq.method(),
                             request.getRequestURL(),
-                            request.getQueryString()
-
+                            query
                     );
                     log.info("Call \"ProfessorController\" class, method \"readProfessors\"");
                     professorController.readProfessors(rq, response);
