@@ -2,16 +2,20 @@ package org.example.repository;
 
 import org.example.domain.model.Professor;
 import org.example.sql.SqlScript;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class ProfessorRepository {
+
+    private static final Logger log = LoggerFactory.getLogger(ProfessorRepository.class);
 
     public Optional<List<Professor>> getProfessorsList(String params) throws SQLException {
         //Парсимо params
@@ -25,20 +29,25 @@ public class ProfessorRepository {
         //Шукаємо необхідний скрипт, в залежності від вхідних параметрів для /get
         SqlScript script = new SqlScript();
         String sql;
-        System.out.println("paramsArr length =" + paramsArr.length);
 
-        if (paramsArr.length == 0) {
+        if (paramsArr[0].equals("all")) {
             sql = script.getAllProfessors(params);
-            System.out.println("script=" + sql);
+            log.info("script={}", sql);
+            log.info("paramsArr[0]={}", paramsArr[0]);
+        } else if (paramsArr[0].equals("")) {
+            sql = script.getAllProfessors(params);
+            log.info("Empty paramsArr[0]={}", paramsArr[0]);
+            return Optional.empty();
         } else {
             sql = paramsArr[0].contains("@") ? script.getProfessorsByEmail(paramsArr[0]) : script.getProfessorsByName(paramsArr[0]);
+            log.info("script={}", sql);
         }
 
         List<Professor> professors = new ArrayList<>();
         // Правильный синтаксис try-with-resources для автоматического закрытия stmt и rs
-        try (Connection conn = DbConnector.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+        try (Connection conn = DbConnectionProvider.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Professor professor = new Professor(
                         rs.getInt("id"),
@@ -55,9 +64,11 @@ public class ProfessorRepository {
 
     public Optional<List<Professor>> postProfessor(String params) throws SQLException {
         //Парсимо params
+        System.out.println("Зайшли в ProfessorRepository");
         String[] paramsArr;
         if (params != null) {
             paramsArr = params.split(",");
+            System.out.println("paramsArr=" + paramsArr[0] + " " + paramsArr[1] + " " + paramsArr[2]);
             if (paramsArr.length != 3) {
                 System.out.println("Помилка валідації: Очікувалося 3 параметри, отримано " + paramsArr.length);
                 return Optional.empty();
@@ -75,13 +86,19 @@ public class ProfessorRepository {
         String sql = script.insertProfessor(name, email, departmentId);
         System.out.println("Виконується інсерт: " + sql);
 
-        try (Connection conn = DbConnector.getConnection();
-             Statement stmt = conn.createStatement()) {
-            int rowsAffected = stmt.executeUpdate(sql);
+        try (Connection conn = DbConnectionProvider.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
+                int generatedId = 0;
+                try (ResultSet rs = stmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        generatedId = rs.getInt(1); // Витягуємо згенерований ID з першої колонки
+                    }
+                }
                 List<Professor> createdProfessors = new ArrayList<>();
-                createdProfessors.add(new Professor(0, name, email, departmentId));
+                createdProfessors.add(new Professor(generatedId, name, email, departmentId));
 
                 return Optional.of(createdProfessors);
             }

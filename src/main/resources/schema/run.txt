@@ -4,3 +4,7 @@ docker run --name university_postgres -p 5433:5432 -e POSTGRES_DB=university_db 
 
 docker exec -it postgresLocalhost psql -U postgres
 ALTER USER postgres WITH PASSWORD 'MyNewPassword123!';
+
+
+cmd
+curl -X POST "http://127.0.0.1:8080/professor?name=Nancy+Drew&email=ndf@oxford.edu&department_id=2"

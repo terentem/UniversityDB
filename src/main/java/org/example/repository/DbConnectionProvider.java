@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DbConnector {
+public class DbConnectionProvider {
 
     private static String dbUrl;
     private static String dbUser;
@@ -20,7 +20,7 @@ public class DbConnector {
 
             // 2. Шлях до файлу з параметрами підключення до БД
             Properties props = new Properties();
-            try (InputStream input = DbConnector.class.getClassLoader().getResourceAsStream("settings.properties")) {
+            try (InputStream input = DbConnectionProvider.class.getClassLoader().getResourceAsStream("settings.properties")) {
                 if (input == null) {
                     throw new RuntimeException("Sorry, unable to find settings file");
                 }

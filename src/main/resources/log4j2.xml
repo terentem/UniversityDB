@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <!-- Шлях до папки з логами та ім'я поточного файлу -->
+        <Property name="LOG_DIR">logs</Property>
+        <Property name="LOG_FILE_NAME">university_app</Property>
+
+        <!-- ПАТЕРН: [Час] [Рівень] [%logger{36} - Клас] [%M - Метод] [%L - Рядок] - Повідомлення -->
+        <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} - точний час логування -->
+        <!-- %logger{36} - назва класу (скорочена до 36 символів для читаємості) -->
+        <!-- %M - НАЗВА МЕТОДУ  -->
+        <!-- %L - номер рядка коду, де було викликано лог -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-Flow-Id}] [%5level] %logger{36}.%M(%L) - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 1. Консольний аппендер (Console) -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <!-- 2. Файловий аппендер (RollingFile) -->
+        <!-- Автоматично архівує логи щодня, щоб поточний файл не розростався до гігабайт -->
+        <RollingFile name="FileAppender"
+                     fileName="${LOG_DIR}/${LOG_FILE_NAME}.log"
+                     filePattern="${LOG_DIR}/archived/${LOG_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <!-- Ротація файлу логів кожного дня -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <!-- Або якщо поточний файл перевищить розмір 10 МБ -->
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <!-- Зберігати максимум 30 архівних файлів в папці /archived/ -->
+            <DefaultRolloverStrategy max="30" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Глобальний Root-логер, який об'єднує обидва аппендери -->
+        <!-- level="DEBUG" означає, що логуватися буде все: DEBUG, INFO, WARN, ERROR, FATAL -->
+        <Root level="DEBUG">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
