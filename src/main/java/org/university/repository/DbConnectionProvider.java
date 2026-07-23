@@ -1,4 +1,4 @@
-package org.example.repository;
+package org.university.repository;
 
 import java.io.InputStream;
 import java.sql.Connection;
