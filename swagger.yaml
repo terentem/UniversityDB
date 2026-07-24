@@ -93,7 +93,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+    put:
+        summary: Оновити існуючого професора
+        description: |
+          Приймає параметри, як для нового професора, виконує валідацію на кількість параметрів (має бути рівно 4)
+          та додає запис до бази даних через Statement.executeUpdate().
+        parameters:
+          -  name: id
+             in: query
+             required: true
+             description: id існуючого професора
+             schema:
+               type: integer
+             example: 20
 
+          - name: name
+            in: query
+            required: true
+            description: Повне ім'я нового професора
+            schema:
+              type: string
+            example: Isac Molibden
+          - name: email
+            in: query
+            required: true
+            description: Електронна адреса нового професора
+            schema:
+              type: string
+            example: im@oxford.edu
+          - name: department_id
+            in: query
+            required: true
+            description: Ідентифікатор кафедри/департаменту
+            schema:
+              type: integer
+            example: 5
+        responses:
+          '200':
+            description: Професора успішно оновлено
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Professor'
+          '400':
+            description: Помилка валідації (невірна кількість або формат параметрів)
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+          '500':
+            description: Внутрішня помилка сервера або помилка виконання SQL-інсерту
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
     GetProfessorDto:
