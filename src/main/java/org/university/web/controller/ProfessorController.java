@@ -9,13 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Professor;
 import org.university.service.ProfessorService;
-import org.university.web.dto.GetProfessorDto;
-import org.university.web.dto.PostProfessorDto;
-import org.university.web.dto.ShortHttpGetRequestDto;
-import org.university.web.dto.ShortHttpPostRequestDto;
-import org.university.web.model.RequestParameter;
-import org.university.web.utilities.HttpBodyValidator;
-import org.university.web.utilities.ResponseDataProvider;
+import org.university.web.dto.InputProfessorDto;
+import org.university.web.dto.OutputProfessorDto;
+import org.university.web.utilities.ResponseProfessorMapper;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -37,58 +33,34 @@ public class ProfessorController {
         this.professorService = professorService;
     }
 
-    public void readProfessors(ShortHttpGetRequestDto httpRequestDto, HttpServletResponse response) throws IOException {
+    public void readProfessors(String pathVariable, HttpServletResponse response) throws IOException {
         try {
-            //Validation of request parameters
-            log.info("Input data: Request request={} ", httpRequestDto);
-            String params;
-            String pathVariableName = httpRequestDto.pathVariableName();
-            int pathLength = httpRequestDto.fullPathLength();
-            log.info("pathLength={} ", pathLength);
-            if (pathLength == 4) {
-                if (pathVariableName.equals(RequestParameter.ID.value()) ||
-                        pathVariableName.equals(RequestParameter.NAME.value()) ||
-                        pathVariableName.equals(RequestParameter.EMAIL.value())) {
-                    params = httpRequestDto.pathVariableValue();
-                } else {
-                    log.error("Unknown path variable name detected: {}", pathVariableName);
-                    throw new IllegalArgumentException("Unknown parameter : " + pathVariableName);
-                }
-            } else {
-                log.error("Empty id or name in request");
-                throw new IllegalArgumentException("Empty value of " + pathVariableName);
-            }
-            log.info("Extracted pathVariableValue=: {}", params);
+            log.info("provided pathVariableValue=: {}", pathVariable);
 
             //Call ProfessorService
-            Optional<List<Professor>> optionalResult = professorService.getProfessors(params, pathVariableName);
-            List<GetProfessorDto> getProfessorDto = ResponseDataProvider.createGetHttpResponseDto(optionalResult);
+            Optional<List<Professor>> optionalResult = professorService.getProfessors(pathVariable);
+            List<OutputProfessorDto> getProfessorDto = ResponseProfessorMapper.createGetHttpResponseDto(optionalResult);
 
             // Serialization into JSON for response
             String jsonResult = objectMapper.writeValueAsString(getProfessorDto);
             response.getWriter().write(jsonResult);
             response.getWriter().flush();
             log.info("Reply jsonResult result {}", jsonResult);
-
         } catch (SQLException ex) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("{\"error\": \"" + ex.getMessage() + "\"}");
-            log.error("Error message={}, errorCode={}", ex.getMessage(), ex);
         }
     }
 
-    public void createProfessor(ShortHttpPostRequestDto request, HttpServletResponse response) throws IOException {
-        String params=HttpBodyValidator.checkPostHttpBody(request);
-
+    public void createProfessor(InputProfessorDto professorDto, HttpServletResponse response) throws IOException {
         try {
             //Call ProfessorService
-            Optional<List<Professor>> optionalResult = professorService.createProfessor(params);
-
+            Optional<List<Professor>> optionalResult = professorService.createProfessor(professorDto);
             //Create and send response
             if (optionalResult.isPresent()) {
                 response.setStatus(HttpServletResponse.SC_CREATED); // 201 Created
-                List<PostProfessorDto> postProfessorDto = ResponseDataProvider.createPostHttpResponseDto(optionalResult);
-                log.info("POST http response= {}",postProfessorDto);
+                List<OutputProfessorDto> postProfessorDto = ResponseProfessorMapper.createPostPutDeleteHttpResponseDto(optionalResult);
+                log.info("POST http response= {}", postProfessorDto);
                 response.getWriter().write(objectMapper.writeValueAsString(postProfessorDto));
             } else {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400 Bad Request
@@ -100,17 +72,37 @@ public class ProfessorController {
         }
     }
 
-    public void updateProfessor(ShortHttpPostRequestDto request, HttpServletResponse response) throws IOException {
-        String params=HttpBodyValidator.checkPUTtHttpBody(request);
+    public void updateProfessor(InputProfessorDto professorDto, HttpServletResponse response) throws IOException {
         try {
             //Call ProfessorService
-            Optional<List<Professor>> optionalResult = professorService.updateProfessor(params);
+            Optional<List<Professor>> optionalResult = professorService.updateProfessor(professorDto);
 
             //Create and send response
             if (optionalResult.isPresent()) {
                 response.setStatus(HttpServletResponse.SC_OK); // 200 ok
-                List<PostProfessorDto> postProfessorDto = ResponseDataProvider.createPostHttpResponseDto(optionalResult);
-                log.info("PUT http response= {}",postProfessorDto);
+                List<OutputProfessorDto> postProfessorDto = ResponseProfessorMapper.createPostPutDeleteHttpResponseDto(optionalResult);
+                log.info("PUT http response= {}", postProfessorDto);
+                response.getWriter().write(objectMapper.writeValueAsString(postProfessorDto));
+            } else {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400 Bad Request
+                response.getWriter().write("{\"error\": \"Invalid parameters count or format. Expected: name,email,department_id\"}");
+            }
+        } catch (SQLException ex) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("{\"error\": \"" + ex.getMessage() + "\"}");
+        }
+    }
+
+    public void deleteProfessor(InputProfessorDto professorDto, HttpServletResponse response) throws IOException {
+        try {
+            //Call ProfessorService
+            Optional<List<Professor>> optionalResult = professorService.deleteProfessor(professorDto);
+
+            //Create and send response
+            if (optionalResult.isPresent()) {
+                response.setStatus(HttpServletResponse.SC_ACCEPTED); // 200 ok
+                List<OutputProfessorDto> postProfessorDto = ResponseProfessorMapper.createPostPutDeleteHttpResponseDto(optionalResult);
+                log.info("PUT http response= {}", postProfessorDto);
                 response.getWriter().write(objectMapper.writeValueAsString(postProfessorDto));
             } else {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400 Bad Request

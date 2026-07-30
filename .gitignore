@@ -43,3 +43,6 @@ schema/run.txt
 # Игнорируем файл с паролями от базы данных
 settings.properties
 src/main/resources/settings.properties
+
+# Игнорирумо файл з логами
+logs/

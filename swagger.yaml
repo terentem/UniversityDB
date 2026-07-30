@@ -11,24 +11,10 @@ servers:
 paths:
   /professor:
     get:
-      summary: Отримати список професорів або виконати пошук
+      summary: Отримати список професорів або виконати пошук /professor/{id}
       description: |
         Повертає список професорів. Якщо параметри відсутні — повертає повний список.
-        Якщо передано `name` або `email` — виконує відповідну фільтрацію.
-        Результат повертається у вигляді полегшеного DTO (лише ім'я та емейл).
-      parameters:
-        - name: name
-          in: query
-          required: false
-          description: Ім'я професора для фільтрації (наприклад, Diana Bishop)
-          schema:
-            type: string
-        - name: email
-          in: query
-          required: false
-          description: Емейл професора для фільтрації (наприклад, db@oxford.edu)
-          schema:
-            type: string
+
       responses:
         '200':
           description: Успішне отримання списку професорів
@@ -37,7 +23,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GetProfessorDto'
+                  $ref: '#/components/schemas/OutpouProfessorDto'
         '500':
           description: Внутрішня помилка сервера або бази даних
           content:
@@ -149,20 +135,62 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      summary: Видалити професора
+      description: |
+        Видаляє професора по id .
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Id професора
+          schema:
+            type: integer
+          example: 31
+
+      responses:
+        '202':
+          description: Професора видалено
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Professor'
+        '400':
+          description: Помилка валідації (невірна кількість або формат параметрів)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Внутрішня помилка сервера або помилка виконання SQL-інсерту
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+
 components:
   schemas:
-    GetProfessorDto:
+    OutpouProfessorDto:
       type: object
       properties:
+        id:
+          type: string
+          example: Diana Bishop
         name:
           type: string
           example: Diana Bishop
         email:
           type: string
           example: db@oxford.edu
+        departmentId:
+            type: integer
+            example: 5
       required:
-        - name
-        - email
+        - id
+
 
     Professor:
       type: object
@@ -176,6 +204,9 @@ components:
         email:
           type: string
           example: im@osford.edu
+        department:
+          type: integer
+          example: Law
         departmentId:
           type: integer
           example: 5

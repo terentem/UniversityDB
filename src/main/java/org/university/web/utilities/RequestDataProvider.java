@@ -1,11 +1,10 @@
 package org.university.web.utilities;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.web.controller.ProfessorController;
-import org.university.web.dto.ShortHttpGetRequestDto;
-import org.university.web.dto.ShortHttpPostRequestDto;
+import org.university.web.dto.InputProfessorDto;
+import org.university.web.model.RequestParameter;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -13,41 +12,41 @@ import java.util.stream.Collectors;
 public class RequestDataProvider {
     private static final Logger log = LoggerFactory.getLogger(ProfessorController.class);
 
-    public static ShortHttpGetRequestDto createGetHttpRequestDto(HttpServletRequest request) {
-        if (request.getPathInfo().split("/").length > 3) {
-            ShortHttpGetRequestDto httpRequestDto = ShortHttpGetRequestDto.builder()
-                    .fullPath(request.getPathInfo())
-                    .path("/" + request.getPathInfo().split("/")[1])
-                    .method(request.getMethod())
-                    .pathVariableName(request.getPathInfo().split("/")[2])
-                    .pathVariableValue(request.getPathInfo().split("/")[3])
-                    .fullPathLength(request.getPathInfo().split("/").length)
-                    .build();
-            return httpRequestDto;
-        } else {
-            log.error("Not valid path {}", request.getPathInfo());
-            throw new IllegalArgumentException("Invalid path " + request.getPathInfo());
-        }
-    }
 
-    public static Map<String, String> getParameters(HttpServletRequest request) {
-        Map<String, String> params =
-                request.getParameterMap()
-                        .entrySet()
-                        .stream()
-                        .collect(Collectors.toMap(
-                                Map.Entry::getKey,
-                                e -> e.getValue()[0]
-                        ));
+    public static Map<String, String> getParameters(Map<String, String[]> parameters) {
+        Map<String, String> params = parameters
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        e -> e.getValue()[0]
+                ));
         return params;
     }
 
-    public static ShortHttpPostRequestDto createPostHttpDto(HttpServletRequest request) {
-        return ShortHttpPostRequestDto.builder()
-                .fullPath(request.getPathInfo())
-                .method(request.getMethod())
-                .body(getParameters(request))
-                .build();
+    public static InputProfessorDto mapToInputPostProfessorDto(Map<String, String> body) {
+        return new InputProfessorDto(
+                body.get(RequestParameter.NAME.value()),
+                body.get(RequestParameter.EMAIL.value()),
+                Integer.parseInt(body.get(RequestParameter.DEPARTMENT.value())));
+    }
+
+    public static InputProfessorDto mapToInputPutProfessorDto(Map<String, String> body) {
+        return new InputProfessorDto(
+                Integer.parseInt(body.get(RequestParameter.ID.value())),
+                body.get(RequestParameter.NAME.value()),
+                body.get(RequestParameter.EMAIL.value()),
+                Integer.parseInt(body.get(RequestParameter.DEPARTMENT.value())));
+    }
+
+    public static String getPathVariable(String path) {
+        int pathLength = path.split("/").length;
+        return pathLength == 3 ? path.split("/")[2] : "all";
+    }
+
+    public static InputProfessorDto mapToDeleteProfessorDto(Map<String, String> body) {
+        return new InputProfessorDto(
+                Integer.parseInt(body.get(RequestParameter.ID.value())));
     }
 }
 
