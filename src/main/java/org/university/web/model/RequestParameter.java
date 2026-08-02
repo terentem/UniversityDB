@@ -1,4 +1,4 @@
-package org.example.web;
+package org.university.web.model;
 
 
 public enum RequestParameter {
