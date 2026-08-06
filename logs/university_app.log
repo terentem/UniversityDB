@@ -1,0 +1,442 @@
+2026-08-06 14:21:34.214 [3dd3be09-d5f1-4d5e-8dc8-be5a1e7f0a16] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 14:21:34.224 [3dd3be09-d5f1-4d5e-8dc8-be5a1e7f0a16] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 14:21:34.224 [3dd3be09-d5f1-4d5e-8dc8-be5a1e7f0a16] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 14:21:34.225 [3dd3be09-d5f1-4d5e-8dc8-be5a1e7f0a16] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(39) - Start mapping from http body into RequestProfessorDto
+2026-08-06 14:32:06.314 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 14:32:06.319 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 14:32:06.319 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 14:32:06.345 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(42) - Start mapping from http body into RequestProfessorDto
+2026-08-06 14:32:06.397 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.repository.StudentRepository.create(54) - Виконується інсерт: sql INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_nimber)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING *
+ 
+2026-08-06 14:32:06.554 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:32:06.555 [6b208bc1-515d-46a8-8d12-2807458b00e9] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:38:10.696 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 14:38:10.702 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 14:38:10.703 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 14:38:10.727 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(42) - Start mapping from http body into RequestProfessorDto
+2026-08-06 14:38:10.783 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.repository.StudentRepository.create(54) - Виконується інсерт: sql INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_number)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING *
+ 
+2026-08-06 14:38:10.922 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:38:10.923 [d433bdce-4ae9-4b3a-9ef7-494ea4242928] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:40:05.285 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 14:40:05.291 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 14:40:05.291 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 14:40:05.315 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(42) - Start mapping from http body into RequestProfessorDto
+2026-08-06 14:40:05.367 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.repository.StudentRepository.create(54) - Виконується інсерт: sql INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_number)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING *
+ 
+2026-08-06 14:40:05.497 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:40:05.498 [9e9ac010-5b17-4e7d-bb47-a46fd58c9114] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:41:49.734 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 14:41:49.736 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 14:41:49.737 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 14:41:49.737 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 14:41:49.737 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 14:41:49.753 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:41:49.753 [42bd1bb2-b45c-43e1-a430-39ff5479fbd1] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:41:49.899 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 14:41:49.899 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 14:41:49.899 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 14:41:49.899 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 14:41:49.900 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 14:41:49.920 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:41:49.920 [14023bbb-069c-4a51-a64b-fda2acdd79be] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:42:33.569 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 14:42:33.576 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 14:42:33.576 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 14:42:33.576 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 14:42:33.578 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 14:42:33.760 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:42:33.760 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:42:33.772 [e07ab73b-54fa-414f-93c9-5dba68ac8656] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 14:42:33.869 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 14:42:33.870 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 14:42:33.870 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 14:42:33.871 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 14:42:33.871 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 14:42:33.892 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:42:33.892 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:42:33.896 [740f00a3-cdf0-4d59-9140-3fb6769627e5] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 14:45:40.253 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/1
+2026-08-06 14:45:40.255 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(13) - Success path check. path.length= = 3 
+2026-08-06 14:45:40.255 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= 1
+2026-08-06 14:45:40.255 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.service.StudentService.get(32) - id = params=1
+2026-08-06 14:45:40.255 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.repository.StudentRepository.findById(33) - script=SELECT *
+FROM students
+WHERE id=?
+
+2026-08-06 14:45:40.264 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.repository.StudentRepository.findById(36) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x0000019c562b9208@3c365a0c
+2026-08-06 14:45:40.427 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:45:40.427 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:45:40.443 [ccc7cf27-59fb-4757-b289-6a4d1b604247] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 14:45:40.584 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/1
+2026-08-06 14:45:40.584 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(13) - Success path check. path.length= = 3 
+2026-08-06 14:45:40.584 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= 1
+2026-08-06 14:45:40.585 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.service.StudentService.get(32) - id = params=1
+2026-08-06 14:45:40.585 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.repository.StudentRepository.findById(33) - script=SELECT *
+FROM students
+WHERE id=?
+
+2026-08-06 14:45:40.585 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.repository.StudentRepository.findById(36) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x0000019c562b9208@3c365a0c
+2026-08-06 14:45:40.607 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:45:40.607 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:45:40.611 [9d1a0e24-8fd7-49b1-b38c-94413f5111e5] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 14:54:12.346 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 14:54:12.352 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 14:54:12.353 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 14:54:12.353 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 14:54:12.353 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 14:54:12.530 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:54:12.530 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:54:12.543 [7279d153-5138-4e48-89f0-2274c5231090] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 14:54:12.731 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 14:54:12.732 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 14:54:12.732 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 14:54:12.732 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 14:54:12.732 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 14:54:12.755 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:54:12.755 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:54:12.758 [c91449aa-5248-409e-8866-460961daf144] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 14:56:01.423 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 14:56:01.424 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 14:56:01.425 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 14:56:01.425 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(42) - Start mapping from http body into RequestProfessorDto
+2026-08-06 14:56:01.454 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.repository.StudentRepository.create(54) - Виконується інсерт: sql INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_number)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING *
+ 
+2026-08-06 14:56:01.471 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 14:56:01.472 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 14:56:01.479 [84199d0f-b088-498e-b25c-990a9efba555] [ INFO] org.university.web.controller.StudentController.create(55) - POST http response= [ResponseStudentDto[id=3, name=Phil Richards, email=ph@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:01:40.936 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:01:40.937 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:01:40.937 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:01:40.937 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:01:40.937 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:01:40.955 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:01:40.955 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:01:40.959 [4f806382-2112-473b-bb8e-0ed2cff136b9] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=ph@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:01:41.044 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:01:41.044 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:01:41.044 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:01:41.044 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:01:41.045 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:01:41.058 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:01:41.059 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:01:41.061 [8e10c0ae-cead-4ae9-a2b1-90ad3f1bf4cc] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=ph@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:02:30.054 [ca3ebb7a-0ba4-4a78-88f6-0a7a752fcfc3] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 15:02:30.056 [ca3ebb7a-0ba4-4a78-88f6-0a7a752fcfc3] [ INFO] org.university.web.DispatcherServlet.doPut(93) - pathVariable= null
+2026-08-06 15:03:03.381 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:03:03.381 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:03:03.382 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:03:03.382 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:03:03.382 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:03:03.400 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:03:03.400 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:03:03.404 [e7ca925d-c27c-448e-9442-fafa9872cca7] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=ph@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:03:03.429 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:03:03.429 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:03:03.429 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:03:03.429 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:03:03.430 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:03:03.446 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:03:03.446 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:03:03.450 [4615faaa-9f1c-4542-8760-a8218d9a9053] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=ph@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:03:57.078 [8055e76c-0e8e-4355-925e-ebe028154260] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/3 
+2026-08-06 15:03:57.078 [8055e76c-0e8e-4355-925e-ebe028154260] [ INFO] org.university.web.DispatcherServlet.doPut(93) - pathVariable= 3
+2026-08-06 15:04:22.628 [882c07db-15eb-4b44-9965-e176fadf97ef] [ INFO] org.university.web.DispatcherServlet.getShortPath(136) -  http path[1] = /students, request.getPathInfo()=/students/3 
+2026-08-06 15:04:22.632 [882c07db-15eb-4b44-9965-e176fadf97ef] [ INFO] org.university.web.DispatcherServlet.doPut(93) - pathVariable= 3
+2026-08-06 15:06:54.046 [d1b42443-55da-4287-9aea-0900c4287684] [ INFO] org.university.web.DispatcherServlet.getShortPath(137) -  http path[1] = /students, request.getPathInfo()=/students/3 
+2026-08-06 15:06:54.050 [d1b42443-55da-4287-9aea-0900c4287684] [ INFO] org.university.web.DispatcherServlet.doPut(93) - pathVariable= 3
+2026-08-06 15:06:54.051 [d1b42443-55da-4287-9aea-0900c4287684] [ INFO] org.university.web.utilities.student.StudentValidator.checkPutDeletePath(71) - Success path check. path.length= = 3 
+2026-08-06 15:06:54.051 [d1b42443-55da-4287-9aea-0900c4287684] [ INFO] org.university.web.DispatcherServlet.doPut(103) - Successfull path check for /students
+2026-08-06 15:06:54.052 [d1b42443-55da-4287-9aea-0900c4287684] [ INFO] org.university.web.controller.ProfessorController.mapToRequestProfessorDto(34) - Start mapping from http body into RequestProfessorDto
+2026-08-06 15:08:03.240 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.DispatcherServlet.getShortPath(137) -  http path[1] = /students, request.getPathInfo()=/students/3 
+2026-08-06 15:08:03.246 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.DispatcherServlet.doPut(93) - pathVariable= 3
+2026-08-06 15:08:03.247 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.utilities.student.StudentValidator.checkPutDeletePath(71) - Success path check. path.length= = 3 
+2026-08-06 15:08:03.248 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.DispatcherServlet.doPut(103) - Successfull path check for /students
+2026-08-06 15:08:03.248 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(42) - Start mapping from http body into RequestProfessorDto
+2026-08-06 15:08:03.298 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.utilities.student.StudentValidator.checkPutHttpBody(63) - Check params in http body: Phil Richards, phr@student.edu
+2026-08-06 15:08:03.298 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.repository.StudentRepository.updateProfessor(65) - Виконується update: sql UPDATE students
+SET name=?, email=?,enrollment_date=?,birthday=?, funding_source=?,admission_score=?,has_special_needs=?,address=?,phone_number=?
+WHERE id=?
+RETURNING *
+ 
+2026-08-06 15:08:03.452 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:08:03.454 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:08:03.478 [524c4afe-e8f5-4720-898f-a416a1e61128] [ INFO] org.university.web.controller.StudentController.update(63) - PUT http response= [ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:08:08.739 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:08:08.739 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:08:08.739 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:08:08.740 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:08:08.740 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:08:08.755 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:08:08.755 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:08:08.758 [543305d0-ce08-4bd7-8e8b-2e866ad37f40] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:08:08.797 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:08:08.797 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:08:08.797 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:08:08.797 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:08:08.797 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:08:08.817 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:08:08.818 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:08:08.821 [c3f51757-99b6-4661-8b5a-a7c39f1318a2] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:23:19.446 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 15:23:19.451 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 15:23:19.451 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 15:23:19.452 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.web.controller.ProfessorController.mapToRequestStudentDto(42) - Start mapping from http body into RequestProfessorDto
+2026-08-06 15:23:19.501 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.repository.StudentRepository.create(54) - Виконується інсерт: sql INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_number)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING *
+ 
+2026-08-06 15:23:19.634 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:23:19.635 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:23:19.650 [fecc5da2-f03e-4867-991a-26db3abdd9c7] [ INFO] org.university.web.controller.StudentController.create(55) - POST http response= [ResponseStudentDto[id=4, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:23:25.075 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:23:25.075 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:23:25.075 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:23:25.076 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:23:25.076 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:23:25.105 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:23:25.106 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:23:25.111 [6f388273-98c5-47c3-89a1-50261fac35fd] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759], ResponseStudentDto[id=4, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:23:25.207 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:23:25.207 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:23:25.207 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:23:25.208 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:23:25.208 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:23:25.224 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:23:25.225 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:23:25.228 [6bb1c77c-a3de-4af4-bcc0-163eaed1beba] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759], ResponseStudentDto[id=4, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:25:44.094 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/4 
+2026-08-06 15:25:44.095 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.web.DispatcherServlet.doDelete(129) - /students pathVariable= 4
+2026-08-06 15:25:44.095 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.repository.StudentRepository.deleteById(75) - script=DELETE FROM students
+WHERE id=?
+RETURNING *
+
+2026-08-06 15:25:44.095 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.repository.StudentRepository.deleteById(78) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x000002ae092df5c0@242a51a
+2026-08-06 15:25:44.109 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:25:44.110 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:25:44.120 [158f9b4c-1cd8-460b-878a-b7d36d2430f4] [ INFO] org.university.web.controller.StudentController.delete(70) - DELETE http response= [ResponseStudentDto[id=4, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:25:51.742 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:25:51.742 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:25:51.743 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:25:51.743 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:25:51.743 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:25:51.758 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:25:51.758 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:25:51.760 [cc3bffb7-c896-4b70-94a6-bf17056c505b] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 15:25:51.799 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 15:25:51.799 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 15:25:51.799 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 15:25:51.800 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 15:25:51.800 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 15:25:51.815 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 15:25:51.815 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 15:25:51.817 [d763ffd1-5388-45d4-b160-567704c256a8] [ INFO] org.university.web.controller.StudentController.read(47) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:53:57.702 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:53:57.713 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:53:57.713 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:53:57.713 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:53:57.713 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:53:58.055 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:53:58.056 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:53:58.084 [b49d7380-12db-45a0-974b-bbd4386860fe] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:53:58.382 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:53:58.382 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:53:58.382 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:53:58.384 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:53:58.384 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:53:58.416 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:53:58.416 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:53:58.424 [a859a0a0-5009-4dad-84e8-3428d6092a46] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:54:02.104 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/1
+2026-08-06 18:54:02.106 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(13) - Success path check. path.length= = 3 
+2026-08-06 18:54:02.106 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= 1
+2026-08-06 18:54:02.106 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.service.StudentService.get(32) - id = params=1
+2026-08-06 18:54:02.108 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.repository.StudentRepository.findById(33) - script=SELECT *
+FROM students
+WHERE id=?
+
+2026-08-06 18:54:02.108 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.repository.StudentRepository.findById(36) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x000002bd012bd9f8@37064bde
+2026-08-06 18:54:02.148 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:54:02.149 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:54:02.158 [258bd0fa-6f85-4a5e-9836-6b3e546ca10c] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 18:54:02.241 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/1
+2026-08-06 18:54:02.241 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(13) - Success path check. path.length= = 3 
+2026-08-06 18:54:02.241 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= 1
+2026-08-06 18:54:02.241 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.service.StudentService.get(32) - id = params=1
+2026-08-06 18:54:02.241 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.repository.StudentRepository.findById(33) - script=SELECT *
+FROM students
+WHERE id=?
+
+2026-08-06 18:54:02.241 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.repository.StudentRepository.findById(36) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x000002bd012bd9f8@37064bde
+2026-08-06 18:54:02.276 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:54:02.277 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:54:02.282 [88e28987-7782-4aa9-97a7-f629353b8c8e] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]
+2026-08-06 18:54:37.268 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/ 
+2026-08-06 18:54:37.268 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/
+2026-08-06 18:54:37.269 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(47) - path length = 2, path[0]= , path[1]= students
+2026-08-06 18:54:37.269 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.web.dto.student.RequestStudentMapper.mapToRequestStudentDto(35) - Start mapping from http body into RequestProfessorDto
+2026-08-06 18:54:37.319 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.repository.StudentRepository.create(54) - Виконується інсерт: sql INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_number)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+RETURNING *
+ 
+2026-08-06 18:54:37.341 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:54:37.342 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:54:37.356 [eaf5d7c6-556b-45c3-93d2-a5b96a7c272b] [ INFO] org.university.web.controller.StudentController.create(53) - POST http response= [ResponseStudentDto[id=5, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:55:23.497 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:55:23.499 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:55:23.499 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:55:23.499 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:55:23.499 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:55:23.537 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:55:23.538 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:55:23.543 [23361d15-c665-4c25-b9ed-a04c63d44018] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759], ResponseStudentDto[id=5, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:55:23.594 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:55:23.595 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:55:23.595 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:55:23.595 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:55:23.595 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:55:23.624 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:55:23.625 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:55:23.631 [46459b7d-b3ea-407c-9790-625d11cb7367] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759], ResponseStudentDto[id=5, name=Coca Cola, email=coc@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:55:55.058 [227ccc2a-7d6e-4394-ade9-f0ca331088f5] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/5 
+2026-08-06 18:55:55.058 [227ccc2a-7d6e-4394-ade9-f0ca331088f5] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(39) - Path for check = /students/5
+2026-08-06 18:55:55.058 [227ccc2a-7d6e-4394-ade9-f0ca331088f5] [ERROR] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(43) - Illigal path /students/5
+2026-08-06 18:55:55.059 [227ccc2a-7d6e-4394-ade9-f0ca331088f5] [ INFO] org.university.web.utilities.student.StudentValidator.checkPostHttpPath(44) - path length = 3, path[0]= , path[1]= students
+2026-08-06 18:56:58.754 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/5 
+2026-08-06 18:56:58.755 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.DispatcherServlet.doPut(93) - pathVariable= 5
+2026-08-06 18:56:58.755 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.utilities.student.StudentValidator.checkPutDeletePath(71) - Success path check. path.length= = 3 
+2026-08-06 18:56:58.755 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.DispatcherServlet.doPut(103) - Successfull path check for /students
+2026-08-06 18:56:58.756 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.dto.student.RequestStudentMapper.mapToRequestStudentDto(35) - Start mapping from http body into RequestProfessorDto
+2026-08-06 18:56:58.756 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.utilities.student.StudentValidator.checkPutHttpBody(63) - Check params in http body: Coca Cola, coco@student.edu
+2026-08-06 18:56:58.756 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.repository.StudentRepository.updateProfessor(65) - Виконується update: sql UPDATE students
+SET name=?, email=?,enrollment_date=?,birthday=?, funding_source=?,admission_score=?,has_special_needs=?,address=?,phone_number=?
+WHERE id=?
+RETURNING *
+ 
+2026-08-06 18:56:58.773 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:56:58.773 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:56:58.782 [cba276d3-35f3-4556-9329-2f94ad7d55ce] [ INFO] org.university.web.controller.StudentController.update(61) - PUT http response= [ResponseStudentDto[id=5, name=Coca Cola, email=coco@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:57:05.167 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:57:05.171 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:57:05.171 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:57:05.171 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:57:05.171 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:57:05.216 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:57:05.217 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:57:05.221 [8c67b6f7-0391-4f56-994e-311f229387c0] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759], ResponseStudentDto[id=5, name=Coca Cola, email=coco@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:57:05.293 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:57:05.293 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:57:05.293 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:57:05.293 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:57:05.293 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:57:05.327 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:57:05.328 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:57:05.334 [774b5fa8-dbd3-4cfa-9b7c-2deced814332] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759], ResponseStudentDto[id=5, name=Coca Cola, email=coco@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:57:48.650 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/5 
+2026-08-06 18:57:48.651 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.web.DispatcherServlet.doDelete(129) - /students pathVariable= 5
+2026-08-06 18:57:48.651 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.repository.StudentRepository.deleteById(75) - script=DELETE FROM students
+WHERE id=?
+RETURNING *
+
+2026-08-06 18:57:48.651 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.repository.StudentRepository.deleteById(78) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x000002bd012bcc30@c854b22
+2026-08-06 18:57:48.682 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:57:48.682 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:57:48.716 [fcb8fed2-ca2e-400f-a7f7-7661781451b8] [ INFO] org.university.web.controller.StudentController.delete(68) - DELETE http response= [ResponseStudentDto[id=5, name=Coca Cola, email=coco@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:57:52.877 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:57:52.877 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:57:52.877 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:57:52.877 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:57:52.877 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:57:52.898 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:57:52.899 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:57:52.902 [dcfada67-224c-495a-9e37-53ebca234e50] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 18:57:52.946 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /students/
+2026-08-06 18:57:52.946 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.web.utilities.student.StudentValidator.checkGetPath(15) - Success path check. path.length= 2 
+2026-08-06 18:57:52.946 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.web.DispatcherServlet.doGet(48) - pathVariable= null
+2026-08-06 18:57:52.948 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.service.StudentService.get(29) - id = params=null
+2026-08-06 18:57:52.948 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.repository.StudentRepository.findAll(44) - script=SELECT s.*
+FROM students s
+
+2026-08-06 18:57:52.993 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-06 18:57:52.993 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-06 18:57:52.999 [b5cb7f91-c8eb-4838-9529-2ab8f627ab1b] [ INFO] org.university.web.controller.StudentController.read(45) - GET reply  [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758], ResponseStudentDto[id=3, name=Phil Richards, email=phr@student.edu, enrollmentDate=2026-01-01, birthday=2010-02-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589759]]
+2026-08-06 19:07:43.799 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /professors/
+2026-08-06 19:07:43.809 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.web.utilities.professor.ProfessorValidator.checkGetPath(22) - Success path check. path.length= 2 
+2026-08-06 19:07:43.809 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.web.DispatcherServlet.doGet(43) - pathVariable= null
+2026-08-06 19:07:43.811 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.service.ProfessorService.getProfessors(25) - id = params=null
+2026-08-06 19:07:43.811 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.repository.ProfessorRepository.findAll(38) - script=SELECT p.*,
+       d.name AS department
+FROM professors p
+JOIN departments d
+     ON p.department_id = d.id
+
+2026-08-06 19:07:44.132 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.repository.ProfessorRepository.executeSql(82) - Created PreparedStatement stmt
+2026-08-06 19:07:44.132 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.repository.ProfessorRepository.executeSql(84) - Set values of placeholders in stmt
+2026-08-06 19:07:44.186 [8a7397a0-3e4d-4d90-b2ca-dbb679865c76] [ INFO] org.university.web.controller.ProfessorController.readProfessors(41) - GET reply  [ResponseProfessorDto[id=1, name=John Clirik, email=jc@oxford.edu, department=IT, departmentId=1], ResponseProfessorDto[id=3, name=Diana Bishop, email=db@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=4, name=Roy DeClairmont, email=rd@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=6, name=Mortisha Adams, email=ma@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=7, name=Edith Crawley, email=ec@oxford.edu, department=Law, departmentId=4], ResponseProfessorDto[id=8, name=Mary Bennet, email=mb@oxford.edu, department=Show business, departmentId=5], ResponseProfessorDto[id=9, name=Jane Marple, email=jm@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=10, name=Isac Molibden, email=im@oxford.edu, department=Show business, departmentId=5], ResponseProfessorDto[id=11, name=Ludwig Aurum, email=la@oxford.edu, department=Show business, departmentId=5], ResponseProfessorDto[id=12, name=Michail Fedorov, email=mf@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=14, name=Nancy Drew, email=ndf@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=15, name=Helga Patacky, email=hpf@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=16, name=Elon Musk, email=em@oxford.edu, department=IT, departmentId=1], ResponseProfessorDto[id=17, name=X Musk, email=xm@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=18, name=Britney Spears, email=bsf@oxford.edu, department=Law, departmentId=4], ResponseProfessorDto[id=19, name=Agatha Christie, email=ac@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=26, name=Den Brown, email=dbr@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=22, name=Max Kidruk, email=mkdr@oxford.edu, department=IT, departmentId=1], ResponseProfessorDto[id=2, name=Mari Seintclaire, email=ms@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=28, name=Phoebe Halliwellw, email=phoh@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=30, name=Marvel Cherryw, email=mchr@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=29, name=Pruedance Halliwall, email=prh@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=5, name=Goody Olsop, email=gol@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=27, name=Piper Halliwell, email=pph@oxford.edu, department=Finance, departmentId=2]]
+2026-08-06 19:07:44.500 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /professors/
+2026-08-06 19:07:44.501 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.web.utilities.professor.ProfessorValidator.checkGetPath(22) - Success path check. path.length= 2 
+2026-08-06 19:07:44.501 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.web.DispatcherServlet.doGet(43) - pathVariable= null
+2026-08-06 19:07:44.501 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.service.ProfessorService.getProfessors(25) - id = params=null
+2026-08-06 19:07:44.501 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.repository.ProfessorRepository.findAll(38) - script=SELECT p.*,
+       d.name AS department
+FROM professors p
+JOIN departments d
+     ON p.department_id = d.id
+
+2026-08-06 19:07:44.538 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.repository.ProfessorRepository.executeSql(82) - Created PreparedStatement stmt
+2026-08-06 19:07:44.539 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.repository.ProfessorRepository.executeSql(84) - Set values of placeholders in stmt
+2026-08-06 19:07:44.546 [0f92c5f5-c117-4a34-9843-7689195d5e6e] [ INFO] org.university.web.controller.ProfessorController.readProfessors(41) - GET reply  [ResponseProfessorDto[id=1, name=John Clirik, email=jc@oxford.edu, department=IT, departmentId=1], ResponseProfessorDto[id=3, name=Diana Bishop, email=db@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=4, name=Roy DeClairmont, email=rd@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=6, name=Mortisha Adams, email=ma@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=7, name=Edith Crawley, email=ec@oxford.edu, department=Law, departmentId=4], ResponseProfessorDto[id=8, name=Mary Bennet, email=mb@oxford.edu, department=Show business, departmentId=5], ResponseProfessorDto[id=9, name=Jane Marple, email=jm@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=10, name=Isac Molibden, email=im@oxford.edu, department=Show business, departmentId=5], ResponseProfessorDto[id=11, name=Ludwig Aurum, email=la@oxford.edu, department=Show business, departmentId=5], ResponseProfessorDto[id=12, name=Michail Fedorov, email=mf@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=14, name=Nancy Drew, email=ndf@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=15, name=Helga Patacky, email=hpf@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=16, name=Elon Musk, email=em@oxford.edu, department=IT, departmentId=1], ResponseProfessorDto[id=17, name=X Musk, email=xm@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=18, name=Britney Spears, email=bsf@oxford.edu, department=Law, departmentId=4], ResponseProfessorDto[id=19, name=Agatha Christie, email=ac@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=26, name=Den Brown, email=dbr@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=22, name=Max Kidruk, email=mkdr@oxford.edu, department=IT, departmentId=1], ResponseProfessorDto[id=2, name=Mari Seintclaire, email=ms@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=28, name=Phoebe Halliwellw, email=phoh@oxford.edu, department=Finance, departmentId=2], ResponseProfessorDto[id=30, name=Marvel Cherryw, email=mchr@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=29, name=Pruedance Halliwall, email=prh@oxford.edu, department=Literature, departmentId=6], ResponseProfessorDto[id=5, name=Goody Olsop, email=gol@oxford.edu, department=Science, departmentId=3], ResponseProfessorDto[id=27, name=Piper Halliwell, email=pph@oxford.edu, department=Finance, departmentId=2]]

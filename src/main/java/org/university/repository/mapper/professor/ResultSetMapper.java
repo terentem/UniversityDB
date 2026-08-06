@@ -1,4 +1,4 @@
-package org.university.repository.mapper;
+package org.university.repository.mapper.professor;
 
 import org.university.domain.model.Professor;
 

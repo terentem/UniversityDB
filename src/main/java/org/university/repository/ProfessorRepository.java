@@ -3,10 +3,12 @@ package org.university.repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Professor;
-import org.university.repository.mapper.MapperConstants;
-import org.university.repository.mapper.MapperExecutor;
-import org.university.sql.SqlConstants;
-import org.university.sql.SqlParameters;
+import org.university.repository.mapper.professor.MapperConstants;
+import org.university.repository.mapper.professor.MapperExecutor;
+import org.university.repository.mapper.professor.StatementValueSetter;
+import org.university.sql.professor.SqlConstants;
+import org.university.sql.professor.SqlParameters;
+import org.university.web.dto.professor.RequestProfessorDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,23 +43,23 @@ public class ProfessorRepository {
         return professors.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(professors);
     }
 
-    public Optional<List<Professor>> createProfessor(String name, String email, int departmentId) throws SQLException {
+    public Optional<List<Professor>> createProfessor(RequestProfessorDto requestProfessorDto) throws SQLException {
         String sql = SqlConstants.INSERT_PROFESSOR;
         log.info("Виконується інсерт: sql {} ", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_INSERT;
         MapperExecutor mapperExecutor = MapperConstants.CREATE_UPDATE_DELETE_CONSTANT;
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(name, email, departmentId);
+        SqlParameters paramsForStmtConfiguration = new SqlParameters(requestProfessorDto.name(), requestProfessorDto.email(), requestProfessorDto.departmentId());
         List<Professor> professors = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return professors.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(professors);
     }
 
-    public Optional<List<Professor>> updateProfessor(int id, String name, String email, int departmentId) throws SQLException {
-        String department = "";
+    public Optional<List<Professor>> updateProfessor(RequestProfessorDto professorDto, Integer pathVariavle) throws SQLException {
+
         String sql = SqlConstants.UPDATE_PROFESSOR;
         log.info("Виконується update: sql {} ", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_UPDATE;
         MapperExecutor mapperExecutor = MapperConstants.CREATE_UPDATE_DELETE_CONSTANT;
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(id, name, email, departmentId);
+        SqlParameters paramsForStmtConfiguration = new SqlParameters(pathVariavle, professorDto.name(), professorDto.email(), professorDto.departmentId());
         List<Professor> professors = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return professors.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(professors);
     }

@@ -18,10 +18,13 @@ public class Main {
         Connector connector = tomcat.getConnector(); //
         Context path = tomcat.addContext("", new File(".").getAbsolutePath());// створює у пам’яті Java об'єкт, який «вказує» на поточну папку (це параметр ocBase → де лежать ресурси).
 
+        StudentContext studentContext=new StudentContext();
+
         ProfessorRepository repository = new ProfessorRepository();
         ProfessorService professorService = new ProfessorService(repository);
         ProfessorController professorController = new ProfessorController(professorService);
-        DispatcherServlet dispatcherController = new DispatcherServlet(professorController);
+        DispatcherServlet dispatcherController = new DispatcherServlet(professorController, studentContext.getStudentController());
+
 
         Tomcat.addServlet(path, "DispatcherController", dispatcherController);
         path.addServletMappingDecoded("/*", "DispatcherController");
