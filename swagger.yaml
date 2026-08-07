@@ -9,7 +9,7 @@ servers:
     description: Локальний сервер Tomcat
 
 paths:
-  /professor:
+  /professors:
     get:
       summary: Отримати список професорів або виконати пошук /professor/{id}
       description: |
@@ -170,6 +170,115 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
 
+  /students:
+    get:
+      tags:
+        - Students
+      summary: Get all students
+      operationId: getAllStudents
+      responses:
+        '200':
+          description: List of students
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResponseStudentDto'
+
+    post:
+      tags:
+        - Students
+      summary: Create new student
+      operationId: createStudent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestStudentDto'
+      responses:
+        '201':
+          description: Student created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStudentDto'
+
+        '400':
+          description: Invalid request
+
+  /students/{id}:
+      get:
+        tags:
+          - Students
+        summary: Get student by id
+        operationId: getStudentById
+        parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: integer
+        responses:
+          '200':
+            description: Student found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ResponseStudentDto'
+
+          '404':
+            description: Student not found
+
+      put:
+        tags:
+          - Students
+        summary: Update student
+        operationId: updateStudent
+        parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: integer
+
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStudentDto'
+
+        responses:
+          '200':
+            description: Student updated
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ResponseStudentDto'
+
+          '404':
+            description: Student not found
+
+      delete:
+        tags:
+          - Students
+        summary: Delete student
+        operationId: deleteStudent
+        parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: integer
+
+        responses:
+          '204':
+            description: Student deleted
+
+          '404':
+            description: Student not found
 
 components:
   schemas:
@@ -222,3 +331,102 @@ components:
         error:
           type: string
           example: Invalid parameters count or format. Expected name,email,department_id
+    RequestStudentDto:
+      type: object
+      required:
+        - name
+        - email
+        - enrollmentDate
+        - birthday
+        - fundingSource
+        - admissionScore
+        - specialNeeds
+        - address
+        - phoneNumber
+
+      properties:
+
+        name:
+          type: string
+          example: Arnold Arnold
+
+        email:
+          type: string
+          example: aa@student.edu
+
+        enrollmentDate:
+          type: string
+          format: date
+          example: 2026-01-01
+
+        birthday:
+          type: string
+          format: date
+          example: 2010-01-01
+
+        fundingSource:
+          type: string
+          example: credit
+
+        admissionScore:
+          type: integer
+          example: 5
+
+        specialNeeds:
+          type: boolean
+          example: false
+
+        address:
+          type: string
+          example: A City, B Str
+
+        phoneNumber:
+          type: string
+          example: "0502589750"
+
+    ResponseStudentDto:
+      type: object
+
+      properties:
+
+        id:
+          type: integer
+          example: 12
+
+        name:
+          type: string
+          example: Arnold Arnold
+
+        email:
+          type: string
+          example: aa@student.edu
+
+        enrollmentDate:
+          type: string
+          format: date
+          example: 2026-01-01
+
+        birthday:
+          type: string
+          format: date
+          example: 2010-01-01
+
+        fundingSource:
+          type: string
+          example: credit
+
+        admissionScore:
+          type: integer
+          example: 5
+
+        specialNeeds:
+          type: boolean
+          example: false
+
+        address:
+          type: string
+          example: A City, B Str
+
+        phoneNumber:
+          type: string
+          example: "0502589750"

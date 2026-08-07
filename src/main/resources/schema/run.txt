@@ -22,15 +22,31 @@ curl -X PUT "http://127.0.0.1:8080/professor/27" ^
 -d "{\"name\":\"Piper Halliwell\",\"email\":\"pph@oxford.edu\",\"departmentId\":2}"
 
 curl -X DELETE "http://127.0.0.1:8080/professor/38"
+**************************************************************************************************************
+************************************************************************************************************
+
+curl -X GET "http://127.0.0.1:8080/students/"
+curl -X GET "http://127.0.0.1:8080/students/1"
 
 curl -X POST "http://127.0.0.1:8080/students/" ^
 -H "Content-Type: application/json" ^
--d "{\"name\":\"Coca Cola\",\"email\":\"coc@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-02-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589759\""}"
+-d "{\"name\":\"Arnold Arnold\",\"email\":\"aa@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-01-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589750\""}"
 
 curl -X PUT "http://127.0.0.1:8080/students/3" ^
 -H "Content-Type: application/json" ^
 -d "{\"name\":\"Phil Richards\",\"email\":\"phr@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-02-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589759\""}"
 
+curl -X DELETE "http://127.0.0.1:8080/students/5"
+
 curl -X PUT "http://127.0.0.1:8080/students/5" ^
 -H "Content-Type: application/json" ^
 -d "{\"name\":\"Coca Cola\",\"email\":\"coco@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-02-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589759\""}"
+
+curl -X POST "http://127.0.0.1:8080/students/" ^
+-H "Content-Type: application/json" ^
+-d "{\"name\":\"Arnold Arnold\",\"email\":\"aa@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-01-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589750\""}"
+
+
+curl -X POST "http://127.0.0.1:8080/students/" ^
+-H "Content-Type: application/json" ^
+-d "{\"name\":\"Coca Cola\",\"email\":\"coc@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-02-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589759\""}"
