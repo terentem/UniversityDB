@@ -1,0 +1,12 @@
+2026-08-07 09:59:51.015 [2bc5f3ce-4f23-4ca0-951a-3b0df05418cb] [ INFO] org.university.web.DispatcherServlet.doGet(38) - Real http path = /professor/1
+2026-08-07 09:59:51.040 [2bc5f3ce-4f23-4ca0-951a-3b0df05418cb] [ERROR] org.university.web.DispatcherServlet.doGet(53) - 404. Path /professor/1 doesn`t exists.
+2026-08-07 10:00:27.642 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.web.DispatcherServlet.getShortPath(142) -  http path[1] = /students, request.getPathInfo()=/students/1 
+2026-08-07 10:00:27.666 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.web.DispatcherServlet.doDelete(129) - /students pathVariable= 1
+2026-08-07 10:00:27.667 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.repository.StudentRepository.deleteById(75) - script=DELETE FROM students
+WHERE id=?
+RETURNING *
+
+2026-08-07 10:00:27.681 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.repository.StudentRepository.deleteById(78) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x0000029f2a289000@443c4fab
+2026-08-07 10:00:28.045 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.repository.StudentRepository.executeSql(88) - Created PreparedStatement stmt
+2026-08-07 10:00:28.045 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.repository.StudentRepository.executeSql(90) - Set values of placeholders in stmt
+2026-08-07 10:00:28.090 [cd295716-8e3a-4c48-8572-bb097d804d1c] [ INFO] org.university.web.controller.StudentController.delete(68) - DELETE http response= [ResponseStudentDto[id=1, name=Arnold Arnold, email=aa@student.edu, enrollmentDate=2026-01-01, birthday=2010-01-01, fundingSource=credit, admissionScore=5, specialNeeds=false, address=A City, B Str, phoneNumber=0502589758]]

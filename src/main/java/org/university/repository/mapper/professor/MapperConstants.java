@@ -1,9 +1,4 @@
-package org.university.repository.mapper;
-
-import org.university.repository.StatementValueSetter;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
+package org.university.repository.mapper.professor;
 
 public class MapperConstants {
     public static final MapperExecutor READ_CONSTANT =

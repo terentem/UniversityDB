@@ -4,7 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Professor;
 import org.university.repository.ProfessorRepository;
-import org.university.web.dto.InputProfessorDto;
+import org.university.web.dto.professor.RequestProfessorDto;
+import org.university.web.utilities.professor.ProfessorValidator;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -18,29 +19,29 @@ public class ProfessorService {
         this.repository = repository;
     }
 
-    public Optional<List<Professor>> getProfessors(String params) throws SQLException {
-        log.info("Input parameters in method \"getProfessors\" = {} ", params);
-
+    public Optional<List<Professor>> getProfessors(Integer id) throws SQLException {
         //ВИзначаємо метод для пошуку
-        if (params.equals("all")) {
+        if (id == null) {
+            log.info("id = params={}", id);
             return repository.findAll();
         } else {
-            log.info("id = params={}", params);
-            Integer id = Integer.parseInt(params);
+            log.info("id = params={}", id);
             return repository.findById(id);
         }
     }
 
-    public Optional<List<Professor>> createProfessor(InputProfessorDto professorDto) throws SQLException {
-        return repository.createProfessor(professorDto.name(), professorDto.email(), professorDto.departmentId());
+    public Optional<List<Professor>> createProfessor(RequestProfessorDto professorDto) throws SQLException {
+        ProfessorValidator.checkPostHttpBody(professorDto);
+        return repository.createProfessor(professorDto);
     }
 
-    public Optional<List<Professor>> updateProfessor(InputProfessorDto professorDto) throws SQLException {
-         return repository.updateProfessor(professorDto.id(), professorDto.name(), professorDto.email(), professorDto.departmentId());
-          }
+    public Optional<List<Professor>> updateProfessor(RequestProfessorDto professorDto, Integer pathVariable) throws SQLException {
+        ProfessorValidator.checkPutHttpBody(professorDto);
+        return repository.updateProfessor(professorDto, pathVariable);
+    }
 
-    public Optional<List<Professor>> deleteProfessor(InputProfessorDto professorDto) throws SQLException {
-        return repository.deleteById(professorDto.id());
+    public Optional<List<Professor>> deleteProfessor(Integer id) throws SQLException {
+        return repository.deleteById(id);
     }
 }
 

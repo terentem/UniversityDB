@@ -1,6 +1,6 @@
-package org.university.sql;
+package org.university.sql.professor;
 
-import org.university.repository.StatementValueSetter;
+import org.university.repository.mapper.professor.StatementValueSetter;
 
 public class SqlConstants {
     private SqlConstants() {

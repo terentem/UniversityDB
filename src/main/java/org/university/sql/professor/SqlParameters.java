@@ -1,4 +1,4 @@
-package org.university.sql;
+package org.university.sql.professor;
 
 public record SqlParameters(Integer id,
                             String name,

@@ -44,5 +44,5 @@ schema/run.txt
 settings.properties
 src/main/resources/settings.properties
 
-# Игнорирумо файл з логами
+# Игноруємо файл з логами
 logs/

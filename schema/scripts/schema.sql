@@ -30,7 +30,7 @@ CREATE TABLE professors (
 );
 -- rollback DROP TABLE professors;
 
--- changeset terentem:4-create-students
+-- changeset terentem:4-create-student
 CREATE TABLE students (
                           id BIGSERIAL,
                           name VARCHAR(255) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE students (
                           CONSTRAINT pk_students PRIMARY KEY (id),
                           CONSTRAINT uq_students_email UNIQUE (email)
 );
--- rollback DROP TABLE students;
+-- rollback DROP TABLE student;
 
 -- changeset terentem:5-create-courses
 CREATE TABLE courses (
@@ -77,7 +77,7 @@ CREATE TABLE offerings (
 );
 -- rollback DROP TABLE offerings;
 
--- changeset terentem:8-create-offerings-students
+-- changeset terentem:8-create-offerings-student
 CREATE TABLE offerings_students (
                                     student_id BIGINT NOT NULL,
                                     offering_id BIGINT NOT NULL,

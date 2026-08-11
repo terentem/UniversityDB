@@ -1,6 +1,6 @@
-package org.university.repository;
+package org.university.repository.mapper.professor;
 
-import org.university.sql.SqlParameters;
+import org.university.sql.professor.SqlParameters;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

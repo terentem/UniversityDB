@@ -23,5 +23,7 @@
              relativeToChangelogFile="true"/>
     <include file="scripts/008_insert_data_to_offerings.sql"
              relativeToChangelogFile="true"/>
+    <include file="scripts/009_alter_table_students_add_columns.sql"
+             relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
