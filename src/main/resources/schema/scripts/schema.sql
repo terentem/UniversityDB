@@ -30,7 +30,7 @@ CREATE TABLE professors (
 );
 -- rollback DROP TABLE professors;
 
--- changeset terentem:4-create-student
+-- changeset terentem:4-create-students
 CREATE TABLE students (
                           id BIGSERIAL,
                           name VARCHAR(255) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE offerings (
 );
 -- rollback DROP TABLE offerings;
 
--- changeset terentem:8-create-offerings-student
+-- changeset terentem:8-create-offerings-students
 CREATE TABLE offerings_students (
                                     student_id BIGINT NOT NULL,
                                     offering_id BIGINT NOT NULL,

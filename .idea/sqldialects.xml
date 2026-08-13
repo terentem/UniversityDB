@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/006_alter_table_add_unique_to_offerings.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/007_delete_data_from_term_types_and_insert_new_data.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/008_insert_data_to_offerings.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/010_drop_indexes_in_offerings.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/schema/scripts/schema.sql" dialect="GenericSQL" />
   </component>
 </project>

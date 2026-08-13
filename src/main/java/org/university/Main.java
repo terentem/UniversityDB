@@ -4,6 +4,8 @@ import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
+import org.university.context.CourseContext;
+import org.university.context.StudentContext;
 import org.university.repository.ProfessorRepository;
 import org.university.service.ProfessorService;
 import org.university.web.DispatcherServlet;
@@ -19,11 +21,14 @@ public class Main {
         Context path = tomcat.addContext("", new File(".").getAbsolutePath());// створює у пам’яті Java об'єкт, який «вказує» на поточну папку (це параметр ocBase → де лежать ресурси).
 
         StudentContext studentContext=new StudentContext();
+        CourseContext courseContext=new CourseContext();
 
         ProfessorRepository repository = new ProfessorRepository();
         ProfessorService professorService = new ProfessorService(repository);
         ProfessorController professorController = new ProfessorController(professorService);
-        DispatcherServlet dispatcherController = new DispatcherServlet(professorController, studentContext.getStudentController());
+        DispatcherServlet dispatcherController = new DispatcherServlet(professorController,
+                studentContext.getStudentController(),
+                courseContext.getStudentController());
 
 
         Tomcat.addServlet(path, "DispatcherController", dispatcherController);
