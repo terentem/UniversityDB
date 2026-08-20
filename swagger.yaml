@@ -23,7 +23,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OutpouProfessorDto'
+                  $ref: '#/components/schemas/ResponseProfessorDto'
         '500':
           description: Внутрішня помилка сервера або бази даних
           content:
@@ -80,61 +80,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     put:
-        summary: Оновити існуючого професора
-        description: |
-          Приймає параметри, як для нового професора, виконує валідацію на кількість параметрів (має бути рівно 4)
-          та додає запис до бази даних через Statement.executeUpdate().
-        parameters:
-          -  name: id
-             in: query
-             required: true
-             description: id існуючого професора
-             schema:
-               type: integer
-             example: 20
+      summary: Оновити існуючого професора
+      description:
+        Приймає параметри, як для нового професора, виконує валідацію на кількість параметрів (має бути рівно 4)
+        та додає запис до бази даних через Statement.executeUpdate().
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: id існуючого професора
+          schema:
+            type: integer
+          example: 20
 
-          - name: name
-            in: query
-            required: true
-            description: Повне ім'я нового професора
-            schema:
-              type: string
-            example: Isac Molibden
-          - name: email
-            in: query
-            required: true
-            description: Електронна адреса нового професора
-            schema:
-              type: string
-            example: im@oxford.edu
-          - name: department_id
-            in: query
-            required: true
-            description: Ідентифікатор кафедри/департаменту
-            schema:
-              type: integer
-            example: 5
-        responses:
-          '200':
-            description: Професора успішно оновлено
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/Professor'
-          '400':
-            description: Помилка валідації (невірна кількість або формат параметрів)
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ErrorResponse'
-          '500':
-            description: Внутрішня помилка сервера або помилка виконання SQL-інсерту
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ErrorResponse'
+        - name: name
+          in: query
+          required: true
+          description: Повне ім'я нового професора
+          schema:
+            type: string
+          example: Isac Molibden
+        - name: email
+          in: query
+          required: true
+          description: Електронна адреса нового професора
+          schema:
+            type: string
+          example: im@oxford.edu
+        - name: department_id
+          in: query
+          required: true
+          description: Ідентифікатор кафедри/департаменту
+          schema:
+            type: integer
+          example: 5
+      responses:
+        '200':
+          description: Професора успішно оновлено
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Professor'
+        '400':
+          description: Помилка валідації (невірна кількість або формат параметрів)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Внутрішня помилка сервера або помилка виконання SQL-інсерту
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     delete:
       summary: Видалити професора
       description: |
@@ -209,80 +209,190 @@ paths:
           description: Invalid request
 
   /students/{id}:
-      get:
-        tags:
-          - Students
-        summary: Get student by id
-        operationId: getStudentById
-        parameters:
-          - name: id
-            in: path
-            required: true
-            schema:
-              type: integer
-        responses:
-          '200':
-            description: Student found
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ResponseStudentDto'
-
-          '404':
-            description: Student not found
-
-      put:
-        tags:
-          - Students
-        summary: Update student
-        operationId: updateStudent
-        parameters:
-          - name: id
-            in: path
-            required: true
-            schema:
-              type: integer
-
-        requestBody:
+    get:
+      tags:
+        - Students
+      summary: Get student by id
+      operationId: getStudentById
+      parameters:
+        - name: id
+          in: path
           required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Student found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RequestStudentDto'
+                $ref: '#/components/schemas/ResponseStudentDto'
 
-        responses:
-          '200':
-            description: Student updated
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ResponseStudentDto'
+        '404':
+          description: Student not found
 
-          '404':
-            description: Student not found
+    put:
+      tags:
+        - Students
+      summary: Update student
+      operationId: updateStudent
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
 
-      delete:
-        tags:
-          - Students
-        summary: Delete student
-        operationId: deleteStudent
-        parameters:
-          - name: id
-            in: path
-            required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
             schema:
-              type: integer
+              $ref: '#/components/schemas/RequestStudentDto'
 
-        responses:
-          '204':
-            description: Student deleted
+      responses:
+        '200':
+          description: Student updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStudentDto'
 
-          '404':
-            description: Student not found
+        '404':
+          description: Student not found
+
+    delete:
+      tags:
+        - Students
+      summary: Delete student
+      operationId: deleteStudent
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '204':
+          description: Student deleted
+
+        '404':
+          description: Student not found
+
+  /courses:
+    get:
+      tags:
+        - Courses
+      summary: Get all courses
+      operationId: getAllCourses
+      responses:
+        '200':
+          description: List of courses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResponseCourseDto'
+
+    post:
+      tags:
+        - Courses
+      summary: Create new course
+      operationId: createCourse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCourseDto'
+      responses:
+        '201':
+          description: Course created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCourseDto'
+
+        '400':
+          description: Invalid request
+
+  /courses/{id}:
+    get:
+      tags:
+        - Courses
+      summary: Get course by id
+      operationId: getCourseById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Course found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCourseDto'
+
+        '404':
+          description: Course not found
+
+    put:
+      tags:
+        - Courses
+      summary: Update course
+      operationId: updateCourse
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCourseDto'
+
+      responses:
+        '200':
+          description: Course updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCourseDto'
+
+        '404':
+          description: Course not found
+
+    delete:
+      tags:
+        - Courses
+      summary: Delete course
+      operationId: deleteCourse
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '204':
+          description: Course deleted
+
+        '404':
+          description: Course not found
 
 components:
   schemas:
-    OutpouProfessorDto:
+    ResponseProfessorDto:
       type: object
       properties:
         id:
@@ -295,11 +405,10 @@ components:
           type: string
           example: db@oxford.edu
         departmentId:
-            type: integer
-            example: 5
+          type: integer
+          example: 5
       required:
         - id
-
 
     Professor:
       type: object
@@ -331,6 +440,7 @@ components:
         error:
           type: string
           example: Invalid parameters count or format. Expected name,email,department_id
+
     RequestStudentDto:
       type: object
       required:
@@ -345,41 +455,32 @@ components:
         - phoneNumber
 
       properties:
-
         name:
           type: string
           example: Arnold Arnold
-
         email:
           type: string
           example: aa@student.edu
-
         enrollmentDate:
           type: string
           format: date
           example: 2026-01-01
-
         birthday:
           type: string
           format: date
           example: 2010-01-01
-
         fundingSource:
           type: string
           example: credit
-
         admissionScore:
           type: integer
           example: 5
-
         specialNeeds:
           type: boolean
           example: false
-
         address:
           type: string
           example: A City, B Str
-
         phoneNumber:
           type: string
           example: "0502589750"
@@ -388,45 +489,81 @@ components:
       type: object
 
       properties:
-
         id:
           type: integer
           example: 12
-
         name:
           type: string
           example: Arnold Arnold
-
         email:
           type: string
           example: aa@student.edu
-
         enrollmentDate:
           type: string
           format: date
           example: 2026-01-01
-
         birthday:
           type: string
           format: date
           example: 2010-01-01
-
         fundingSource:
           type: string
           example: credit
-
         admissionScore:
           type: integer
           example: 5
-
         specialNeeds:
           type: boolean
           example: false
-
         address:
           type: string
           example: A City, B Str
-
         phoneNumber:
           type: string
           example: "0502589750"
+
+    RequestCourseDto:
+      type: object
+      required:
+        - courseCode
+        - title
+        - numberOfCredits
+        - departmentId
+
+      properties:
+        courseCode:
+          type: string
+          example: 01-45
+        title:
+          type: string
+          example: L_04
+        numberOfCresits:
+          type: integer
+          example: 3
+        departmentId:
+          type: integer
+          example: 5
+
+    ResponseCourseDto:
+      type: object
+
+      properties:
+        id:
+          type: integer
+          example: 1
+        courseCode:
+          type: string
+          example: L_01
+        title:
+          type: string
+          example: Law_advance
+        numberOfCredits:
+          type: integer
+          example: 1
+        departmentId:
+          type: integer
+          example: 5
+        department:
+          type: string
+          example: Law
+

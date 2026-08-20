@@ -5,11 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.university.domain.model.Professor;
 import org.university.repository.ProfessorRepository;
 import org.university.web.dto.professor.RequestProfessorDto;
-import org.university.web.utilities.professor.ProfessorValidator;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class ProfessorService {
     private final ProfessorRepository repository;
@@ -19,29 +18,27 @@ public class ProfessorService {
         this.repository = repository;
     }
 
-    public Optional<List<Professor>> getProfessors(Integer id) throws SQLException {
+    public List<Professor> getProfessors(Integer id) throws SQLException {
         //ВИзначаємо метод для пошуку
-        if (id == null) {
+        if (id == null||id ==0) {
             log.info("id = params={}", id);
-            return repository.findAll();
+            return repository.findAll().orElse(Collections.emptyList());
         } else {
             log.info("id = params={}", id);
-            return repository.findById(id);
+            return repository.findById(id).orElse(Collections.emptyList());
         }
     }
 
-    public Optional<List<Professor>> createProfessor(RequestProfessorDto professorDto) throws SQLException {
-        ProfessorValidator.checkPostHttpBody(professorDto);
-        return repository.createProfessor(professorDto);
+    public List<Professor> createProfessor(RequestProfessorDto professorDto) throws SQLException {
+        return repository.createProfessor(professorDto).orElse(Collections.emptyList());
     }
 
-    public Optional<List<Professor>> updateProfessor(RequestProfessorDto professorDto, Integer pathVariable) throws SQLException {
-        ProfessorValidator.checkPutHttpBody(professorDto);
-        return repository.updateProfessor(professorDto, pathVariable);
+    public List<Professor> updateProfessor(RequestProfessorDto professorDto, Integer pathVariable) throws SQLException {
+        return repository.updateProfessor(professorDto, pathVariable).orElse(Collections.emptyList());
     }
 
-    public Optional<List<Professor>> deleteProfessor(Integer id) throws SQLException {
-        return repository.deleteById(id);
+    public List<Professor> deleteProfessor(Integer id) throws SQLException {
+        return repository.deleteById(id).orElse(Collections.emptyList());
     }
 }
 

@@ -2,19 +2,13 @@ package org.university.repository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.university.domain.model.Student;
-
 import org.university.repository.mapper.student.MapperConstants;
 import org.university.repository.mapper.student.MapperExecutor;
 import org.university.repository.mapper.student.StatementValueSetter;
-
-
-
 import org.university.sql.student.SqlConstants;
 import org.university.sql.student.SqlParameters;
 import org.university.web.dto.student.RequestStudentDto;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,7 +28,7 @@ public class StudentRepository {
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_FIND_BY_ID;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
         log.info("Setters for sql-template= {}", stmtConfigurationAction);
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(id, null, null, null, null,null,null,null,null,null);
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forId(id);
         List<Student> students = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
     }
@@ -44,7 +38,7 @@ public class StudentRepository {
         log.info("script={}", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_FIND_BY_ALL;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(null, null, null, null, null, null, null, null,null,null);
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forAll();
         List<Student> students = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
     }
@@ -54,18 +48,17 @@ public class StudentRepository {
         log.info("Виконується інсерт: sql {} ", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_INSERT;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(requestStudentDto.name(), requestStudentDto.email(),requestStudentDto.enrollmentDate(),requestStudentDto.birthday(),requestStudentDto.fundingSource(), requestStudentDto.admissionScore(), requestStudentDto.specialNeeds(), requestStudentDto.address(), requestStudentDto.phoneNumber());
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forCreate(requestStudentDto);
         List<Student> professors = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return professors.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(professors);
     }
 
-    public Optional<List<Student>> updateProfessor(RequestStudentDto requestStudentDto, Integer pathVariavle) throws SQLException {
-
+    public Optional<List<Student>> update(RequestStudentDto requestStudentDto, Integer id) throws SQLException {
         String sql = SqlConstants.UPDATE;
         log.info("Виконується update: sql {} ", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_UPDATE;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(pathVariavle, requestStudentDto.name(), requestStudentDto.email(),requestStudentDto.enrollmentDate(),requestStudentDto.birthday(),requestStudentDto.fundingSource(), requestStudentDto.admissionScore(), requestStudentDto.specialNeeds(), requestStudentDto.address(), requestStudentDto.phoneNumber());
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forUpdate(id,requestStudentDto);
         List<Student> students = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
     }
@@ -76,7 +69,7 @@ public class StudentRepository {
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_DELETE_BY_ID;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
         log.info("Setters for sql-template= {}", stmtConfigurationAction);
-        SqlParameters paramsForStmtConfiguration = new SqlParameters(id, null, null, null,null,null,null,null,null,null);
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forId(id);
         List<Student> students = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
     }

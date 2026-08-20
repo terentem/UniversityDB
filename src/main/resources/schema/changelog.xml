@@ -25,5 +25,11 @@
              relativeToChangelogFile="true"/>
     <include file="scripts/009_alter_table_students_add_columns.sql"
              relativeToChangelogFile="true"/>
+    <include file="scripts/010_drop_indexes_in_offerings.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/011_add_columns_to_students.sql"
+             relativeToChangelogFile="true"/>
+    <include file="scripts/012_add_columns_to_courses.sql"
+             relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

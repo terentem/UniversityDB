@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
--- changeset terentem:9-add-columns-to-student
+-- changeset terentem:9-add-columns-to-students
 
 ALTER TABLE students
     ADD COLUMN birthday DATE,
