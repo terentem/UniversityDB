@@ -20,7 +20,8 @@ public class ResultSetMapper {
                 rs.getString("title"),
                 rs.getInt("number_of_credits"),
                 rs.getInt("department_id"),
-                null
+                null,
+                rs.getString("course_category")
         );
     }
 
@@ -31,7 +32,8 @@ public class ResultSetMapper {
                 rs.getString("title"),
                 rs.getInt("number_of_credits"),
                 rs.getInt("department_id"),
-                rs.getString("department")
+                rs.getString("department"),
+                rs.getString("course_category")
         );
     }
 }

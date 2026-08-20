@@ -24,14 +24,14 @@ public class SqlConstants {
             """;
 
     public static final String INSERT = """
-            INSERT INTO courses (course_code, title, number_of_credits, department_id)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO courses (course_code, title, number_of_credits, department_id, course_category)
+            VALUES (?, ?, ?, ?,?)
             RETURNING *
             """;
 
     public static final String UPDATE = """
             UPDATE courses
-            SET course_code=?, title=?,number_of_credits=?,department_id=?
+            SET course_code=?, title=?,number_of_credits=?,department_id=?,course_category=?
             WHERE id=?
             RETURNING *
             """;
@@ -55,6 +55,7 @@ public class SqlConstants {
                 stmt.setString(2, params.title());
                 stmt.setInt(3, params.numberOfCredits());
                 stmt.setInt(4, params.departmentId());
+                stmt.setString(5,params.courseCategory());
             };
 
     public static final StatementValueSetter ACTION_FOR_UPDATE =
@@ -63,7 +64,8 @@ public class SqlConstants {
                 stmt.setString(2, params.title());
                 stmt.setInt(3, params.numberOfCredits());
                 stmt.setInt(4, params.departmentId());
-                stmt.setInt(5, params.id());
+                stmt.setString(5, params.courseCategory());
+                stmt.setInt(6, params.id());
                             };
 
     public static final StatementValueSetter ACTION_FOR_DELETE_BY_ID =

@@ -9,7 +9,8 @@ public record ResponseCourseDto(
         String title,
         Integer numberOfCredits,
         Integer departmentId,
-        String department
+        String department,
+        String courseCategory
 ) {
 
     public static ResponseCourseDto toPostPutDeleteDto(Course course) {
@@ -19,7 +20,8 @@ public record ResponseCourseDto(
                 course.title(),
                 course.numberOfCredits(),
                 course.departmentId(),
-                null
+                null,
+                course.courseCategory()
         );
     }
 
@@ -30,7 +32,8 @@ public record ResponseCourseDto(
                 course.title(),
                 course.numberOfCredits(),
                 course.departmentId(),
-                course.department()
+                course.department(),
+                course.courseCategory()
         );
     }
 }

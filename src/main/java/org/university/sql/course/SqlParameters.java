@@ -7,11 +7,13 @@ public record SqlParameters(Integer id,
                             String courseCode,
                             String title,
                             Integer numberOfCredits,
-                            Integer departmentId) {
+                            Integer departmentId,
+                            String courseCategory) {
 
     public static SqlParameters forId(Integer id) {
         return new SqlParameters(
                 id,
+                null,
                 null,
                 null,
                 null,
@@ -26,6 +28,7 @@ public record SqlParameters(Integer id,
                 null,
                 null,
                 null,
+                null,
                 null
         );
     }
@@ -36,7 +39,8 @@ public record SqlParameters(Integer id,
                 dto.courseCode(),
                 dto.title(),
                 dto.numberOfCredits(),
-                dto.departmentId()
+                dto.departmentId(),
+                dto.courseCategory()
         );
     }
 
@@ -49,7 +53,8 @@ public record SqlParameters(Integer id,
                 dto.courseCode(),
                 dto.title(),
                 dto.numberOfCredits(),
-                dto.departmentId()
+                dto.departmentId(),
+                dto.courseCategory()
         );
     }
 }

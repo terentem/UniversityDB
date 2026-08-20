@@ -14,7 +14,9 @@ public record ResponseStudentDto(
         Long admissionScore,
         Boolean specialNeeds,
         String address,
-        String phoneNumber) {
+        String phoneNumber,
+        String gender,
+        int[] academic_interests) {
 
     public static ResponseStudentDto toPostPutDeleteDto(Student student) {
         return new ResponseStudentDto(
@@ -27,7 +29,9 @@ public record ResponseStudentDto(
                 student.admissionScore(),
                 student.specialNeeds(),
                 student.address(),
-                student.phoneNumber()
+                student.phoneNumber(),
+                student.gender(),
+                student.academicInterests()
         );
     }
 
@@ -42,7 +46,9 @@ public record ResponseStudentDto(
                 student.admissionScore(),
                 student.specialNeeds(),
                 student.address(),
-                student.phoneNumber()
+                student.phoneNumber(),
+                student.gender(),
+                student.academicInterests()
         );
     }
 }

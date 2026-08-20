@@ -12,7 +12,9 @@ public record RequestStudentDto(
                                 Long admissionScore,
                                 Boolean specialNeeds,
                                 String address,
-                                String phoneNumber
+                                String phoneNumber,
+                                String gender,
+                                int[] academicInterests
 ) {
 }
 

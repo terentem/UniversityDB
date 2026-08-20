@@ -6,7 +6,8 @@ public record Course(
         String title,
         Integer numberOfCredits,
         Integer departmentId,
-        String department
+        String department,
+        String courseCategory
 ) {
 
 }

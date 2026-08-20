@@ -61,3 +61,7 @@ curl -X PUT "http://127.0.0.1:8080/courses/16" ^
 -d "{\"courseCode\":\"L_04\",\"title\":\"Law_advance\",\"numberOfCredits\":1,\"departmentId\":4}"
 
 curl -X DELETE "http://127.0.0.1:8080/courses/16"
+
+curl -X POST "http://127.0.0.1:8080/students/" ^
+-H "Content-Type: application/json" ^
+-d "{\"name\":\"Barney Barney\",\"email\":\"bb@student.edu\",\"enrollmentDate\":\"2026-01-01\",\"birthday\":\"2010-01-01\",\"fundingSource\":\"credit\",\"admissionScore\":5,\"specialNeeds\":false,\"address\":\"A City, B Str\",\"phoneNumber\":\"0502589750\",\"gender\":\"male\",\"academicInterests\":[1,2,3]}"

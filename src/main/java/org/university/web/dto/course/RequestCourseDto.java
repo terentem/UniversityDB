@@ -5,7 +5,8 @@ public record RequestCourseDto(
         String courseCode,
         String title,
         Integer numberOfCredits,
-        Integer departmentId
+        Integer departmentId,
+        String courseCategory
         ) {
 }
 

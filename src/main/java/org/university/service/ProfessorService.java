@@ -20,7 +20,7 @@ public class ProfessorService {
 
     public List<Professor> getProfessors(Integer id) throws SQLException {
         //ВИзначаємо метод для пошуку
-        if (id == null) {
+        if (id == null||id ==0) {
             log.info("id = params={}", id);
             return repository.findAll().orElse(Collections.emptyList());
         } else {

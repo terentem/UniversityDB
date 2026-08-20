@@ -5,7 +5,7 @@ import org.university.context.ApplicationContext;
 
 import java.io.IOException;
 
-public class ResponseSender {
+public class ResponseWriter {
     public static <T> void responseSender(
             T responseDto,
             int responseStatus,

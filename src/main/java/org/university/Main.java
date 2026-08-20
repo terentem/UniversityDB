@@ -5,6 +5,7 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 import org.university.context.CourseContext;
+import org.university.context.OfferingContext;
 import org.university.context.StudentContext;
 import org.university.repository.ProfessorRepository;
 import org.university.service.ProfessorService;
@@ -20,16 +21,18 @@ public class Main {
         Connector connector = tomcat.getConnector(); //
         Context path = tomcat.addContext("", new File(".").getAbsolutePath());// створює у пам’яті Java об'єкт, який «вказує» на поточну папку (це параметр ocBase → де лежать ресурси).
 
-        StudentContext studentContext=new StudentContext();
-        CourseContext courseContext=new CourseContext();
+        StudentContext studentContext = new StudentContext();
+        CourseContext courseContext = new CourseContext();
+        OfferingContext offeringContext = new OfferingContext();
 
         ProfessorRepository repository = new ProfessorRepository();
         ProfessorService professorService = new ProfessorService(repository);
         ProfessorController professorController = new ProfessorController(professorService);
-        DispatcherServlet dispatcherController = new DispatcherServlet(professorController,
+        DispatcherServlet dispatcherController = new DispatcherServlet(
+                professorController,
                 studentContext.getStudentController(),
-                courseContext.getStudentController());
-
+                courseContext.getStudentController(),
+                offeringContext.getOfferingController());
 
         Tomcat.addServlet(path, "DispatcherController", dispatcherController);
         path.addServletMappingDecoded("/*", "DispatcherController");
@@ -37,6 +40,5 @@ public class Main {
         tomcat.start(); // Запуск сервера
         System.out.println("Піднімаємо сервер");
         tomcat.getServer().await(); // Очікування запитів
-
     }
 }

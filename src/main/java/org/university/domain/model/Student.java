@@ -1,7 +1,6 @@
 package org.university.domain.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public record Student(
         Integer id,
@@ -13,7 +12,9 @@ public record Student(
         Long admissionScore,
         Boolean specialNeeds,
         String address,
-        String phoneNumber
+        String phoneNumber,
+        String gender,
+        int[] academicInterests
         ) {
 
 }

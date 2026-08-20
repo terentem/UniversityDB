@@ -14,11 +14,15 @@ public record SqlParameters(Integer id,
                             Long admissionScore,
                             Boolean specialNeeds,
                             String address,
-                            String phoneNumber) {
+                            String phoneNumber,
+                            String gender,
+                            int[] academicInterests) {
 
     public static SqlParameters forId(Integer id) {
         return new SqlParameters(
                 id,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -33,6 +37,8 @@ public record SqlParameters(Integer id,
 
     public static SqlParameters forAll() {
         return new SqlParameters(
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -57,7 +63,9 @@ public record SqlParameters(Integer id,
                 dto.admissionScore(),
                 dto.specialNeeds(),
                 dto.address(),
-                dto.phoneNumber()
+                dto.phoneNumber(),
+                dto.gender(),
+                dto.academicInterests()
         );
     }
 
@@ -75,7 +83,9 @@ public record SqlParameters(Integer id,
                 dto.admissionScore(),
                 dto.specialNeeds(),
                 dto.address(),
-                dto.phoneNumber()
+                dto.phoneNumber(),
+                dto.gender(),
+                dto.academicInterests()
         );
     }
 }
