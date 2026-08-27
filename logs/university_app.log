@@ -1,104 +1,91 @@
-2026-08-20 14:46:21.122 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.web.DispatcherServlet.doGet(77) - Enter to [/courses] with pathVariable = [12] and body [not expected]
-2026-08-20 14:46:21.142 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.service.CourseService.get(32) - id = params=12
-2026-08-20 14:46:21.144 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.repository.CourseRepository.findById(28) - script=SELECT s.*, d.name AS department
-FROM courses s
-JOIN departments d
-     ON s.department_id = d.id
-WHERE s.id=?
+2026-08-28 00:00:00.246 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.web.DispatcherServlet.getShortPath(295) -  http path[1] = /enrollments, request.getPathInfo()=/enrollments 
+2026-08-28 00:00:00.258 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.web.DispatcherServlet.doPost(150) - Enter to [/enrollmentss] with pathVariable = [not expected] and body [{
+    "studentId":15,
+    "offeringId":1
+}]
+2026-08-28 00:00:00.258 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.repository.EnrollmentRepository.create(32) - Виконується інсерт: sql INSERT INTO offerings_students (student_id,offering_id, grade)
+VALUES (?, ?, ? )
+RETURNING *
+ 
+2026-08-28 00:00:00.280 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.repository.EnrollmentRepository.executeSql(75) - Created PreparedStatement stmt
+2026-08-28 00:00:00.283 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.repository.EnrollmentRepository.executeSql(77) - Set values of placeholders in stmt
+2026-08-28 00:00:00.319 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.web.controller.EnrollmentController.create(30) - POST http response= [ResponseEnrollmentDto[studentId=15, offeringId=1, grade=null]]
+2026-08-28 00:00:00.346 [d13728a6-2c50-428c-9834-1d5b613675bd] [ INFO] org.university.web.DispatcherServlet.doPost(155) - Exit from [/courses] with result [[ResponseEnrollmentDto[studentId=15, offeringId=1, grade=null]]] with [98] ms.
+2026-08-28 00:00:21.270 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.web.DispatcherServlet.getShortPath(295) -  http path[1] = /enrollments, request.getPathInfo()=/enrollments/15-1 
+2026-08-28 00:00:21.271 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.web.DispatcherServlet.doDelete(278) - Enter to [/enrollments] with pathVariable = [15] and body []
+2026-08-28 00:00:21.271 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.repository.EnrollmentRepository.deleteById(62) - script=DELETE FROM offerings_students
+WHERE student_id=? and offering_id=?
+RETURNING *
 
-2026-08-20 14:46:21.156 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.repository.CourseRepository.findById(31) - Setters for sql-template= org.university.sql.course.SqlConstants$$Lambda/0x000002b096252000@49f2fa87
-2026-08-20 14:46:21.509 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.repository.CourseRepository.executeSql(82) - Created PreparedStatement stmt
-2026-08-20 14:46:21.510 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.repository.CourseRepository.executeSql(84) - Set values of placeholders in stmt
-2026-08-20 14:46:21.557 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.web.controller.CourseController.read(32) - GET reply  [ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]
-2026-08-20 14:46:21.810 [f747fb39-ee95-4df1-80b9-0b20f1d89cd9] [ INFO] org.university.web.DispatcherServlet.doGet(81) - Exit from [/students] with result [[ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]] with [703] ms.
-2026-08-20 14:46:22.029 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.web.DispatcherServlet.doGet(77) - Enter to [/courses] with pathVariable = [12] and body [not expected]
-2026-08-20 14:46:22.029 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.service.CourseService.get(32) - id = params=12
-2026-08-20 14:46:22.029 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.repository.CourseRepository.findById(28) - script=SELECT s.*, d.name AS department
-FROM courses s
-JOIN departments d
-     ON s.department_id = d.id
-WHERE s.id=?
-
-2026-08-20 14:46:22.030 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.repository.CourseRepository.findById(31) - Setters for sql-template= org.university.sql.course.SqlConstants$$Lambda/0x000002b096252000@49f2fa87
-2026-08-20 14:46:22.056 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.repository.CourseRepository.executeSql(82) - Created PreparedStatement stmt
-2026-08-20 14:46:22.056 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.repository.CourseRepository.executeSql(84) - Set values of placeholders in stmt
-2026-08-20 14:46:22.063 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.web.controller.CourseController.read(32) - GET reply  [ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]
-2026-08-20 14:46:22.065 [daf04695-3421-4655-a99a-c71e9a2be2a0] [ INFO] org.university.web.DispatcherServlet.doGet(81) - Exit from [/students] with result [[ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]] with [36] ms.
-2026-08-20 14:46:31.338 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.web.DispatcherServlet.doGet(63) - Enter to [/professors] with pathVariable = [12] and body []
-2026-08-20 14:46:31.338 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.service.ProfessorService.getProfessors(27) - id = params=12
-2026-08-20 14:46:31.339 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.repository.ProfessorRepository.findById(27) - script=SELECT p.*,
-       d.name AS department
-FROM professors p
-JOIN departments d
-     ON p.department_id = d.id
-WHERE p.id = ?
-
-2026-08-20 14:46:31.348 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.repository.ProfessorRepository.findById(30) - Setters for sql-template= org.university.sql.professor.SqlConstants$$Lambda/0x000002b09630cf58@72cecd67
-2026-08-20 14:46:31.368 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.repository.ProfessorRepository.executeSql(82) - Created PreparedStatement stmt
-2026-08-20 14:46:31.368 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.repository.ProfessorRepository.executeSql(84) - Set values of placeholders in stmt
-2026-08-20 14:46:31.380 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.web.controller.ProfessorController.readProfessors(31) - GET reply  [ResponseProfessorDto[id=12, name=Michail Fedorov, email=mf@oxford.edu, department=Literature, departmentId=null]]
-2026-08-20 14:46:31.396 [8a08fc63-70df-4f58-b4ce-9840c00025fd] [ INFO] org.university.web.DispatcherServlet.doGet(67) - Exit from [/professors] with result [[ResponseProfessorDto[id=12, name=Michail Fedorov, email=mf@oxford.edu, department=Literature, departmentId=null]]] with [58] ms.
-2026-08-20 14:46:31.446 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.web.DispatcherServlet.doGet(63) - Enter to [/professors] with pathVariable = [12] and body []
-2026-08-20 14:46:31.446 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.service.ProfessorService.getProfessors(27) - id = params=12
-2026-08-20 14:46:31.447 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.repository.ProfessorRepository.findById(27) - script=SELECT p.*,
-       d.name AS department
-FROM professors p
-JOIN departments d
-     ON p.department_id = d.id
-WHERE p.id = ?
-
-2026-08-20 14:46:31.447 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.repository.ProfessorRepository.findById(30) - Setters for sql-template= org.university.sql.professor.SqlConstants$$Lambda/0x000002b09630cf58@72cecd67
-2026-08-20 14:46:31.479 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.repository.ProfessorRepository.executeSql(82) - Created PreparedStatement stmt
-2026-08-20 14:46:31.480 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.repository.ProfessorRepository.executeSql(84) - Set values of placeholders in stmt
-2026-08-20 14:46:31.486 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.web.controller.ProfessorController.readProfessors(31) - GET reply  [ResponseProfessorDto[id=12, name=Michail Fedorov, email=mf@oxford.edu, department=Literature, departmentId=null]]
-2026-08-20 14:46:31.488 [6f46c127-d99d-4e1f-baa8-711a3ae70e05] [ INFO] org.university.web.DispatcherServlet.doGet(67) - Exit from [/professors] with result [[ResponseProfessorDto[id=12, name=Michail Fedorov, email=mf@oxford.edu, department=Literature, departmentId=null]]] with [41] ms.
-2026-08-20 14:46:39.625 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.web.DispatcherServlet.doGet(77) - Enter to [/courses] with pathVariable = [12] and body [not expected]
-2026-08-20 14:46:39.626 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.service.CourseService.get(32) - id = params=12
-2026-08-20 14:46:39.626 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.repository.CourseRepository.findById(28) - script=SELECT s.*, d.name AS department
-FROM courses s
-JOIN departments d
-     ON s.department_id = d.id
-WHERE s.id=?
-
-2026-08-20 14:46:39.626 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.repository.CourseRepository.findById(31) - Setters for sql-template= org.university.sql.course.SqlConstants$$Lambda/0x000002b096252000@49f2fa87
-2026-08-20 14:46:39.669 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.repository.CourseRepository.executeSql(82) - Created PreparedStatement stmt
-2026-08-20 14:46:39.670 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.repository.CourseRepository.executeSql(84) - Set values of placeholders in stmt
-2026-08-20 14:46:39.675 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.web.controller.CourseController.read(32) - GET reply  [ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]
-2026-08-20 14:46:39.676 [69d45762-469e-43a2-a93f-8f4077c30ee9] [ INFO] org.university.web.DispatcherServlet.doGet(81) - Exit from [/students] with result [[ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]] with [51] ms.
-2026-08-20 14:46:39.742 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.web.DispatcherServlet.doGet(77) - Enter to [/courses] with pathVariable = [12] and body [not expected]
-2026-08-20 14:46:39.743 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.service.CourseService.get(32) - id = params=12
-2026-08-20 14:46:39.743 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.repository.CourseRepository.findById(28) - script=SELECT s.*, d.name AS department
-FROM courses s
-JOIN departments d
-     ON s.department_id = d.id
-WHERE s.id=?
-
-2026-08-20 14:46:39.743 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.repository.CourseRepository.findById(31) - Setters for sql-template= org.university.sql.course.SqlConstants$$Lambda/0x000002b096252000@49f2fa87
-2026-08-20 14:46:39.778 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.repository.CourseRepository.executeSql(82) - Created PreparedStatement stmt
-2026-08-20 14:46:39.778 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.repository.CourseRepository.executeSql(84) - Set values of placeholders in stmt
-2026-08-20 14:46:39.786 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.web.controller.CourseController.read(32) - GET reply  [ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]
-2026-08-20 14:46:39.787 [c4caa0af-8b58-4548-a43b-703ec2d1ac20] [ INFO] org.university.web.DispatcherServlet.doGet(81) - Exit from [/students] with result [[ResponseCourseDto[id=12, courseCode=Li_03, title=Literature_master, numberOfCredits=3, departmentId=6, department=Literature, courseCategory=null]]] with [44] ms.
-2026-08-20 14:46:50.411 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.web.DispatcherServlet.doGet(84) - Enter to [/offerings] with pathVariable = [12] and body [not expected]
-2026-08-20 14:46:50.411 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.service.OfferingService.get(31) - id = params=12
-2026-08-20 14:46:50.411 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.repository.OfferingRepository.findById(29) - script=SELECT *
+2026-08-28 00:00:21.271 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.repository.EnrollmentRepository.deleteById(65) - Setters for sql-template= org.university.sql.enrollment.SqlConstants$$Lambda/0x000001f6812bd8e8@5f95cb58
+2026-08-28 00:00:21.286 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.repository.EnrollmentRepository.executeSql(75) - Created PreparedStatement stmt
+2026-08-28 00:00:21.286 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.repository.EnrollmentRepository.executeSql(77) - Set values of placeholders in stmt
+2026-08-28 00:00:21.291 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.web.controller.EnrollmentController.delete(51) - DELETE http response= [ResponseEnrollmentDto[studentId=15, offeringId=1, grade=null]]
+2026-08-28 00:00:21.292 [0b973a01-d7e2-4831-a1ff-7cefbbb60033] [ INFO] org.university.web.DispatcherServlet.doDelete(282) - Exit from [/enrollments] with result [[ResponseEnrollmentDto[studentId=15, offeringId=1, grade=null]]] with [21] ms.
+2026-08-28 00:03:57.644 [aafdf779-641e-460a-8f4a-a2a7da6baa9a] [ INFO] org.university.web.DispatcherServlet.getShortPath(295) -  http path[1] = /enrollments, request.getPathInfo()=/enrollments 
+2026-08-28 00:03:57.650 [aafdf779-641e-460a-8f4a-a2a7da6baa9a] [ INFO] org.university.web.DispatcherServlet.doPost(150) - Enter to [/enrollmentss] with pathVariable = [not expected] and body [{
+    "studentId":null,
+    "offeringId":1
+}]
+2026-08-28 00:03:57.792 [aafdf779-641e-460a-8f4a-a2a7da6baa9a] [ INFO] org.university.repository.EnrollmentRepository.create(32) - Виконується інсерт: sql INSERT INTO offerings_students (student_id,offering_id, grade)
+VALUES (?, ?, ? )
+RETURNING *
+ 
+2026-08-28 00:03:57.955 [aafdf779-641e-460a-8f4a-a2a7da6baa9a] [ INFO] org.university.repository.EnrollmentRepository.executeSql(75) - Created PreparedStatement stmt
+2026-08-28 00:03:57.955 [aafdf779-641e-460a-8f4a-a2a7da6baa9a] [ INFO] org.university.repository.EnrollmentRepository.executeSql(77) - Set values of placeholders in stmt
+2026-08-28 00:04:50.686 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.web.DispatcherServlet.getShortPath(295) -  http path[1] = /enrollments:batch, request.getPathInfo()=/enrollments:batch 
+2026-08-28 00:04:50.687 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.web.DispatcherServlet.doPost(158) - Enter to [/enrollments:batch] with pathVariable = [not expected] and body [{
+    "studentId":null,
+    "offeringId":1
+}]
+2026-08-28 00:04:50.688 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.OfferingRepository.findById(29) - script=SELECT *
 FROM offerings
 WHERE id=?
 
-2026-08-20 14:46:50.469 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.repository.OfferingRepository.findById(32) - Setters for sql-template= org.university.sql.offering.SqlConstants$$Lambda/0x000002b09630f258@1b58d419
-2026-08-20 14:46:50.489 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.repository.OfferingRepository.executeSql(83) - Created PreparedStatement stmt
-2026-08-20 14:46:50.489 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.repository.OfferingRepository.executeSql(85) - Set values of placeholders in stmt
-2026-08-20 14:46:50.497 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.web.controller.OfferingController.read(29) - GET reply  []
-2026-08-20 14:46:50.497 [b77d388a-2f7b-4f40-94f9-dfcf1edbd1d8] [ INFO] org.university.web.DispatcherServlet.doGet(88) - Exit from [/offerings] with result [[]] with [86] ms.
-2026-08-20 14:46:50.539 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.web.DispatcherServlet.doGet(84) - Enter to [/offerings] with pathVariable = [12] and body [not expected]
-2026-08-20 14:46:50.539 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.service.OfferingService.get(31) - id = params=12
-2026-08-20 14:46:50.539 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.repository.OfferingRepository.findById(29) - script=SELECT *
+2026-08-28 00:04:50.689 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.OfferingRepository.findById(32) - Setters for sql-template= org.university.sql.offering.SqlConstants$$Lambda/0x000001881f3147f0@550c86b1
+2026-08-28 00:04:50.705 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.OfferingRepository.executeSql(83) - Created PreparedStatement stmt
+2026-08-28 00:04:50.705 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.OfferingRepository.executeSql(85) - Set values of placeholders in stmt
+2026-08-28 00:04:50.715 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.service.EnrollmentService.batch(50) - Offering data= [Offering[id=1, courseId=9, termId=11, professorId=651]], courseInterestMatch=9
+2026-08-28 00:04:50.726 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.StudentRepository.findSTudentsByInterestId(38) - script=SELECT *
+FROM students
+WHERE ?= ANY(academic_interests);
+
+2026-08-28 00:04:50.728 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.StudentRepository.findSTudentsByInterestId(41) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x000001881f324000@401272bf
+2026-08-28 00:04:50.747 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.StudentRepository.executeSql(92) - Created PreparedStatement stmt
+2026-08-28 00:04:50.748 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.StudentRepository.executeSql(94) - Set values of placeholders in stmt
+2026-08-28 00:04:50.833 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.service.EnrollmentService.batch(54) - student.length= 2891 records
+2026-08-28 00:04:50.834 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.EnrollmentRepository.createbyBatch(42) - Виконується інсерт: sql INSERT INTO offerings_students (student_id,offering_id, grade)
+VALUES (?, ?, ? )
+RETURNING *
+ 
+2026-08-28 00:04:50.853 [a542692c-b05d-47e2-8290-f10a033b54b3] [ INFO] org.university.repository.EnrollmentRepository.executeBatchSql(101) - Created PreparedStatement for Batch
+2026-08-28 00:10:43.314 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.web.DispatcherServlet.getShortPath(295) -  http path[1] = /enrollments:batch, request.getPathInfo()=/enrollments:batch 
+2026-08-28 00:10:43.323 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.web.DispatcherServlet.doPost(158) - Enter to [/enrollments:batch] with pathVariable = [not expected] and body [{
+    "studentId":null,
+    "offeringId":1
+}]
+2026-08-28 00:10:43.521 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.OfferingRepository.findById(29) - script=SELECT *
 FROM offerings
 WHERE id=?
 
-2026-08-20 14:46:50.540 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.repository.OfferingRepository.findById(32) - Setters for sql-template= org.university.sql.offering.SqlConstants$$Lambda/0x000002b09630f258@1b58d419
-2026-08-20 14:46:50.564 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.repository.OfferingRepository.executeSql(83) - Created PreparedStatement stmt
-2026-08-20 14:46:50.565 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.repository.OfferingRepository.executeSql(85) - Set values of placeholders in stmt
-2026-08-20 14:46:50.570 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.web.controller.OfferingController.read(29) - GET reply  []
-2026-08-20 14:46:50.570 [7689da05-5f40-4063-9a91-6bf374316a40] [ INFO] org.university.web.DispatcherServlet.doGet(88) - Exit from [/offerings] with result [[]] with [31] ms.
-2026-08-20 14:46:59.033 [37262406-f700-4a49-91b9-35dc1aa4fee9] [ERROR] org.university.web.DispatcherServlet.doGet(92) - 404. Path /offeringss doesn`t exists.
-2026-08-20 14:46:59.093 [2b19626f-997f-4b8b-914e-b86381e2499a] [ERROR] org.university.web.DispatcherServlet.doGet(92) - 404. Path /offeringss doesn`t exists.
+2026-08-28 00:10:43.525 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.OfferingRepository.findById(32) - Setters for sql-template= org.university.sql.offering.SqlConstants$$Lambda/0x000001ae402bc9d0@25fa6d54
+2026-08-28 00:10:43.703 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.OfferingRepository.executeSql(83) - Created PreparedStatement stmt
+2026-08-28 00:10:43.704 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.OfferingRepository.executeSql(85) - Set values of placeholders in stmt
+2026-08-28 00:10:43.717 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.service.EnrollmentService.batch(50) - Offering data= [Offering[id=1, courseId=9, termId=11, professorId=651]], courseInterestMatch=9
+2026-08-28 00:10:43.733 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.StudentRepository.findSTudentsByInterestId(38) - script=SELECT *
+FROM students
+WHERE ?= ANY(academic_interests);
+
+2026-08-28 00:10:43.738 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.StudentRepository.findSTudentsByInterestId(41) - Setters for sql-template= org.university.sql.student.SqlConstants$$Lambda/0x000001ae4030f828@75594657
+2026-08-28 00:10:43.765 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.StudentRepository.executeSql(92) - Created PreparedStatement stmt
+2026-08-28 00:10:43.765 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.StudentRepository.executeSql(94) - Set values of placeholders in stmt
+2026-08-28 00:10:43.862 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.service.EnrollmentService.batch(54) - student.length= 2891 records
+2026-08-28 00:10:43.863 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.EnrollmentRepository.createbyBatch(42) - Виконується інсерт: sql INSERT INTO offerings_students (student_id,offering_id, grade)
+VALUES (?, ?, ? )
+RETURNING *
+ 
+2026-08-28 00:10:43.895 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.EnrollmentRepository.executeBatchSql(101) - Created PreparedStatement for Batch
+2026-08-28 00:10:43.905 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.EnrollmentRepository.executeBatchSql(103) - Set batch values in stmt
+2026-08-28 00:10:44.380 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.repository.EnrollmentRepository.executeBatchSql(108) - Batch transaction committed successfully
+2026-08-28 00:10:44.382 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.web.controller.EnrollmentController.butch(37) - POST http response= []
+2026-08-28 00:10:44.385 [354f27f2-0830-4880-bec3-97e996a2b883] [ INFO] org.university.web.DispatcherServlet.doPost(163) - Exit from [/enrollmwnts:batch] with result [[]] with [1080] ms.

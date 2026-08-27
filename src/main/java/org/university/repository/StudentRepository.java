@@ -33,6 +33,17 @@ public class StudentRepository {
         return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
     }
 
+    public Optional<List<Student>> findSTudentsByInterestId(Integer id) throws SQLException {
+        String sql = SqlConstants.FIND_STUDENTS_BY_INTERESTS;
+        log.info("script={}", sql);
+        StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_FIND_BY_ID;
+        MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
+        log.info("Setters for sql-template= {}", stmtConfigurationAction);
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forId(id);
+        List<Student> students = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
+        return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
+    }
+
     public Optional<List<Student>> findAll() throws SQLException {
         String sql = SqlConstants.FIND_ALL;
         log.info("script={}", sql);
