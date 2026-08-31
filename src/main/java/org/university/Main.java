@@ -5,6 +5,7 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 import org.university.context.CourseContext;
+import org.university.context.EnrollmentContext;
 import org.university.context.OfferingContext;
 import org.university.context.StudentContext;
 import org.university.repository.ProfessorRepository;
@@ -24,6 +25,7 @@ public class Main {
         StudentContext studentContext = new StudentContext();
         CourseContext courseContext = new CourseContext();
         OfferingContext offeringContext = new OfferingContext();
+        EnrollmentContext enrollmentContext = new EnrollmentContext();
 
         ProfessorRepository repository = new ProfessorRepository();
         ProfessorService professorService = new ProfessorService(repository);
@@ -32,7 +34,8 @@ public class Main {
                 professorController,
                 studentContext.getStudentController(),
                 courseContext.getStudentController(),
-                offeringContext.getOfferingController());
+                offeringContext.getOfferingController(),
+                enrollmentContext.getController());
 
         Tomcat.addServlet(path, "DispatcherController", dispatcherController);
         path.addServletMappingDecoded("/*", "DispatcherController");

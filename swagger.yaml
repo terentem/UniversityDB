@@ -11,6 +11,8 @@ servers:
 paths:
   /professors:
     get:
+      tags:
+        - Professors
       summary: Отримати список професорів або виконати пошук /professor/{id}
       description: |
         Повертає список професорів. Якщо параметри відсутні — повертає повний список.
@@ -32,6 +34,8 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 
     post:
+      tags:
+        - Professors
       summary: Створити нового професора
       description: |
         Приймає параметри нового професора, виконує валідацію на кількість параметрів (має бути рівно 3)
@@ -80,6 +84,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     put:
+      tags:
+        - Professors
       summary: Оновити існуючого професора
       description:
         Приймає параметри, як для нового професора, виконує валідацію на кількість параметрів (має бути рівно 4)
@@ -136,6 +142,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     delete:
+      tags:
+        - Professors
       summary: Видалити професора
       description: |
         Видаляє професора по id .
@@ -390,6 +398,116 @@ paths:
         '404':
           description: Course not found
 
+  /offerings:
+    get:
+      tags:
+        - Offerings
+      summary: Get all offerings
+      operationId: getAllOfferings
+      responses:
+        '200':
+          description: List of oferings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResponseOfferingDto'
+
+    post:
+      tags:
+        - Offerings
+      summary: Create new offering
+      operationId: createOffering
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestOfferingDto'
+      responses:
+        '201':
+          description: Course offering
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseOfferingDto'
+
+        '400':
+          description: Invalid request
+
+  /offerings/{id}:
+    get:
+      tags:
+        - Offerings
+      summary: Get offering by id
+      operationId: getOfferingById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Offering found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseOfferingDto'
+
+        '404':
+          description: Offering not found
+
+    put:
+      tags:
+        - Offerings
+      summary: Update offering
+      operationId: updateOffering
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestOfferingDto'
+
+      responses:
+        '200':
+          description: Offering updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseOfferingDto'
+
+        '404':
+          description: Offering not found
+
+    delete:
+      tags:
+        - Offerings
+      summary: Delete offering
+      operationId: deleteOffering
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '204':
+          description: Offering deleted
+
+        '404':
+          description: Offering not found
+
 components:
   schemas:
     ResponseProfessorDto:
@@ -529,6 +647,7 @@ components:
         - title
         - numberOfCredits
         - departmentId
+        - courseCategory
 
       properties:
         courseCode:
@@ -543,6 +662,9 @@ components:
         departmentId:
           type: integer
           example: 5
+        courseCategory:
+          type: string
+          example: STEM
 
     ResponseCourseDto:
       type: object
@@ -567,3 +689,37 @@ components:
           type: string
           example: Law
 
+    RequestOfferingDto:
+      type: object
+      required:
+        - courseId
+        - termId
+        - professorId
+
+      properties:
+        courseId:
+          type: integer
+          example: 1
+        termId:
+          type: integer
+          example: 20
+        professorId:
+          type: integer
+          example: 3
+
+    ResponseOfferingDto:
+      type: object
+
+      properties:
+        id:
+          type: integer
+          example: 1
+        courseId:
+          type: in'
+          example: 1
+        termId:
+          type: integer
+          example: 13
+        professorId:
+          type: integer
+          example: 1

@@ -19,6 +19,13 @@ public class SqlConstants {
             WHERE id=?
             """;
 
+    public static final String FIND_STUDENTS_BY_INTERESTS = """
+            SELECT *
+            FROM students
+            WHERE ?= ANY(academic_interests);
+            """;
+
+
     public static final String INSERT = """
             INSERT INTO students (name, email, enrollment_date, birthday, funding_source, admission_score, has_special_needs, address, phone_number, gender,academic_interests)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)
