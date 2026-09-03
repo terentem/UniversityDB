@@ -3,7 +3,6 @@ package org.university.sql.student;
 import org.university.web.dto.student.RequestStudentDto;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public record SqlParameters(Integer id,
                             String name,

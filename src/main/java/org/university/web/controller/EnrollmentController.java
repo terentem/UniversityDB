@@ -3,11 +3,9 @@ package org.university.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Enrollment;
-
 import org.university.service.EnrollmentService;
 import org.university.web.dto.enrollment.RequestEnrollmentDto;
 import org.university.web.dto.enrollment.ResponseEnrollmentDto;
-
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,15 +29,15 @@ public class EnrollmentController {
         return getResponseDto;
     }
 
-    public List<ResponseEnrollmentDto> butch(RequestEnrollmentDto requestDto) throws IOException, SQLException {
-        List<Enrollment> result = enrollmentService.batch(requestDto);
+    public List<ResponseEnrollmentDto> createAll(RequestEnrollmentDto requestDto) throws IOException, SQLException {
+        List<Enrollment> result = enrollmentService.createAll(requestDto);
         List<ResponseEnrollmentDto> getResponseDto = result.stream().map(ResponseEnrollmentDto::toReadPostPutDeleteDto).toList();
         log.info("POST http response= {}", getResponseDto);
         return getResponseDto;
     }
 
-    public List<ResponseEnrollmentDto> update(RequestEnrollmentDto requestDto, Integer pathVariable) throws IOException, SQLException {
-        List<Enrollment> result = enrollmentService.update(requestDto, pathVariable);
+    public List<ResponseEnrollmentDto> update(RequestEnrollmentDto requestDto, Integer studentId, Integer offeringId) throws IOException, SQLException {
+        List<Enrollment> result = enrollmentService.update(requestDto, studentId, offeringId);
         List<ResponseEnrollmentDto> getResponseDto = result.stream().map(ResponseEnrollmentDto::toReadPostPutDeleteDto).toList();
         log.info("PUT http response= {}", getResponseDto);
         return getResponseDto;
@@ -51,6 +49,4 @@ public class EnrollmentController {
         log.info("DELETE http response= {}", getResponseDto);
         return getResponseDto;
     }
-
-
 }

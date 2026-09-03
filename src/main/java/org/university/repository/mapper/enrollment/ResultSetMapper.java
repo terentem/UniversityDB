@@ -19,4 +19,8 @@ public class ResultSetMapper {
                 rs.getString("grade")
         );
     }
+
+    public static Integer mapToReadInterestId(ResultSet rs) throws SQLException {
+        return rs.getInt("interest_id");
+    }
 }

@@ -2,9 +2,7 @@ package org.university.context;
 
 
 import org.university.repository.CourseRepository;
-
 import org.university.service.CourseService;
-
 import org.university.web.controller.CourseController;
 
 public class CourseContext {

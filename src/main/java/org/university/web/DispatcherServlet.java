@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 
@@ -37,13 +38,17 @@ public class DispatcherServlet extends HttpServlet {
     private final CourseController courseController;
     private final OfferingController offeringController;
     private final EnrollmentController enrollmentController;
+    private final ReportController reportController;
 
-    public DispatcherServlet(ProfessorController professorController, StudentController studentController, CourseController courseController, OfferingController offeringController, EnrollmentController enrollmentController) {
+    public DispatcherServlet(ProfessorController professorController, StudentController studentController,
+                             CourseController courseController, OfferingController offeringController,
+                             EnrollmentController enrollmentController, ReportController reportController) {
         this.professorController = professorController;
         this.studentController = studentController;
         this.courseController = courseController;
         this.offeringController = offeringController;
         this.enrollmentController = enrollmentController;
+        this.reportController = reportController;
     }
 
     @Override
@@ -51,7 +56,7 @@ public class DispatcherServlet extends HttpServlet {
         long logStart = System.nanoTime();
         prepareDataForLogging();
         String pathFromOriginHttpRequest = "/" + request.getPathInfo().split("/")[1];
-        Integer pathVariable = getPathVariable(request.getPathInfo());
+        Map<String, String[]> queryParameters = request.getParameterMap();
         String body = new String(
                 request.getInputStream().readAllBytes(),
                 StandardCharsets.UTF_8
@@ -61,6 +66,7 @@ public class DispatcherServlet extends HttpServlet {
             int responseStatus;
             switch (pathFromOriginHttpRequest) {
                 case "/professors" -> {
+                    Integer pathVariable = getPathVariable(request.getPathInfo());
                     log.info(ENTER_LOG_MSG, "/professors", pathVariable, body);
                     List<ResponseProfessorDto> responseProfessorDto = professorController.readProfessors(pathVariable);
                     responseStatus = responseProfessorDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
@@ -68,6 +74,7 @@ public class DispatcherServlet extends HttpServlet {
                     log.info(EXIT_LOG_MSG, "/professors", responseProfessorDto, (System.nanoTime() - logStart) / 1_000_000);
                 }
                 case "/students" -> {
+                    Integer pathVariable = getPathVariable(request.getPathInfo());
                     log.info(ENTER_LOG_MSG, "/students", pathVariable, "not expected");
                     List<ResponseStudentDto> responseStudentDto = studentController.read(pathVariable);
                     responseStatus = responseStudentDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
@@ -75,6 +82,7 @@ public class DispatcherServlet extends HttpServlet {
                     log.info(EXIT_LOG_MSG, "/students", responseStudentDto, (System.nanoTime() - logStart) / 1_000_000);
                 }
                 case "/courses" -> {
+                    Integer pathVariable = getPathVariable(request.getPathInfo());
                     log.info(ENTER_LOG_MSG, "/courses", pathVariable, "not expected");
                     List<ResponseCourseDto> responseCourseDto = courseController.read(pathVariable);
                     responseStatus = responseCourseDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
@@ -82,11 +90,20 @@ public class DispatcherServlet extends HttpServlet {
                     log.info(EXIT_LOG_MSG, "/students", responseCourseDto, (System.nanoTime() - logStart) / 1_000_000);
                 }
                 case "/offerings" -> {
+                    Integer pathVariable = getPathVariable(request.getPathInfo());
                     log.info(ENTER_LOG_MSG, "/offerings", pathVariable, "not expected");
                     List<ResponseOfferingDto> responseOfferingDto = offeringController.read(pathVariable);
                     responseStatus = responseOfferingDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
                     ResponseWriter.responseSender(responseOfferingDto, responseStatus, response);
                     log.info(EXIT_LOG_MSG, "/offerings", responseOfferingDto, (System.nanoTime() - logStart) / 1_000_000);
+                }
+                case "/reports" -> {
+                    String pathVariable = getStringPathVariable(request.getPathInfo());
+                    log.info(ENTER_LOG_MSG, "/reports", pathVariable, "not expected");
+                    List<Map<String, String>> reportResult = reportController.doReport(pathVariable, queryParameters);
+                    responseStatus = reportResult.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
+                    ResponseWriter.responseSender(reportResult, responseStatus, response);
+                    log.info(EXIT_LOG_MSG, "/reports", reportResult, (System.nanoTime() - logStart) / 1_000_000);
                 }
                 default -> {
                     response.sendError(404);
@@ -157,7 +174,7 @@ public class DispatcherServlet extends HttpServlet {
                 case "/enrollments:batch" -> {
                     log.info(ENTER_LOG_MSG, "/enrollments:batch", "not expected", body);
                     RequestEnrollmentDto requestEnrollmentDto = ApplicationContext.objectMapper.readValue(body, RequestEnrollmentDto.class);
-                    List<ResponseEnrollmentDto> responseEnrollmentDto = enrollmentController.butch(requestEnrollmentDto);
+                    List<ResponseEnrollmentDto> responseEnrollmentDto = enrollmentController.createAll(requestEnrollmentDto);
                     responseStatus = responseEnrollmentDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
                     ResponseWriter.responseSender(responseEnrollmentDto, responseStatus, response);
                     log.info(EXIT_LOG_MSG, "/enrollmwnts:batch", responseEnrollmentDto, (System.nanoTime() - logStart) / 1_000_000);
@@ -178,7 +195,9 @@ public class DispatcherServlet extends HttpServlet {
         prepareDataForLogging();
         long logStart = System.nanoTime();
         String pathFromOriginHttpRequest = getShortPath(request.getPathInfo());
-        Integer pathVariable = getPathVariable(request.getPathInfo());
+        String[] compoundPathVariable = getCompoundPathVariable(request.getPathInfo());
+        Integer pathVariable = Integer.parseInt(compoundPathVariable[0]);
+        Integer pathVariablePartTwo = Integer.parseInt(compoundPathVariable[1]);
         String body = new String(
                 request.getInputStream().readAllBytes(),
                 StandardCharsets.UTF_8
@@ -219,6 +238,14 @@ public class DispatcherServlet extends HttpServlet {
                     ResponseWriter.responseSender(responseOfferingDto, responseStatus, response);
                     log.info(EXIT_LOG_MSG, "/courses", responseOfferingDto, (System.nanoTime() - logStart) / 1_000_000);
                 }
+                case "/enrollments" -> {
+                    log.info(ENTER_LOG_MSG, "/enrollments", pathVariable, body);
+                    RequestEnrollmentDto requestEnrollmentDto = ApplicationContext.objectMapper.readValue(body, RequestEnrollmentDto.class);
+                    List<ResponseEnrollmentDto> responseEnrollmentDto = enrollmentController.update(requestEnrollmentDto, pathVariable, pathVariablePartTwo);
+                    responseStatus = responseEnrollmentDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
+                    ResponseWriter.responseSender(responseEnrollmentDto, responseStatus, response);
+                    log.info(EXIT_LOG_MSG, "/enrollments", responseEnrollmentDto, (System.nanoTime() - logStart) / 1_000_000);
+                }
                 default -> {
                     response.sendError(404);
                 }
@@ -234,8 +261,8 @@ public class DispatcherServlet extends HttpServlet {
         long logStart = System.nanoTime();
         String pathFromOriginHttpRequest = getShortPath(request.getPathInfo());
         String[] compoundPathVariable = getCompoundPathVariable(request.getPathInfo());
-        Integer pathVariable =Integer.parseInt(compoundPathVariable[0]);
-        Integer pathVariablePartTwo=Integer.parseInt(compoundPathVariable[1]);
+        Integer pathVariable = Integer.parseInt(compoundPathVariable[0]);
+        Integer pathVariablePartTwo = Integer.parseInt(compoundPathVariable[1]);
         //Integer pathVariable = getPathVariable(request.getPathInfo());
         String body = new String(
                 request.getInputStream().readAllBytes(),
@@ -276,7 +303,7 @@ public class DispatcherServlet extends HttpServlet {
                 }
                 case "/enrollments" -> {
                     log.info(ENTER_LOG_MSG, "/enrollments", pathVariable, body);
-                    List<ResponseEnrollmentDto> responseEnrollmentDto = enrollmentController.delete(pathVariable,pathVariablePartTwo);
+                    List<ResponseEnrollmentDto> responseEnrollmentDto = enrollmentController.delete(pathVariable, pathVariablePartTwo);
                     responseStatus = responseEnrollmentDto.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
                     ResponseWriter.responseSender(responseEnrollmentDto, responseStatus, response);
                     log.info(EXIT_LOG_MSG, "/enrollments", responseEnrollmentDto, (System.nanoTime() - logStart) / 1_000_000);
@@ -306,10 +333,15 @@ public class DispatcherServlet extends HttpServlet {
         return pathLength == 3 ? Integer.parseInt(path.split("/")[2]) : null;
     }
 
+    public static String getStringPathVariable(String path) {
+        int pathLength = path.split("/").length;
+        return pathLength == 3 ? path.split("/")[2] : null;
+    }
+
     public static String[] getCompoundPathVariable(String path) {
         int pathLength = path.split("/").length;
-        String rawPathVariable=pathLength == 3 ? (path.split("/")[2]) : null;
-        String[] compoundVariable=rawPathVariable!=null?rawPathVariable.split("-"):new String[]{null,null};
+        String rawPathVariable = pathLength == 3 ? (path.split("/")[2]) : null;
+        String[] compoundVariable = rawPathVariable != null ? rawPathVariable.split("-") : new String[]{null, null};
         return compoundVariable;
     }
 

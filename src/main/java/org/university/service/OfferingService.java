@@ -2,11 +2,9 @@ package org.university.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.university.domain.model.Offering;
 import org.university.repository.OfferingRepository;
 import org.university.web.dto.offering.RequestOfferingDto;
-
 
 import java.sql.SQLException;
 import java.util.Collections;

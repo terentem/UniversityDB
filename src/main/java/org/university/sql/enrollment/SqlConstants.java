@@ -14,6 +14,11 @@ public class SqlConstants {
             WHERE offering_id=?;
             """;
 
+    public static final String FIND_INTEREST_BY_COURSE_ID = """
+            SELECT *
+            FROM courses_interests
+            WHERE course_id=?;
+            """;
 
     public static final String FIND_STUDENTS_BY_INTERESTS = """
             SELECT *
@@ -29,8 +34,8 @@ public class SqlConstants {
 
     public static final String UPDATE = """
             UPDATE offerings_students
-            SET student_id=?, offering_id=?, grade?
-            WHERE id=?
+            SET grade=?
+            WHERE student_id=? and offering_id=?
             RETURNING *
             """;
 
@@ -66,10 +71,9 @@ public class SqlConstants {
 
     public static final StatementValueSetter ACTION_FOR_UPDATE =
             (stmt, params) -> {
-                stmt.setInt(1, params.studentId());
-                stmt.setInt(2, params.offeringId());
-                stmt.setString(3, params.grade());
-                stmt.setInt(4, params.studentId());
+                stmt.setString(1, params.grade());
+                stmt.setInt(2, params.studentId());
+                stmt.setInt(3, params.offeringId());
             };
 
     public static final StatementValueSetter ACTION_FOR_DELETE_BY_ID =
