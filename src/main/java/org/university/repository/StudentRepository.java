@@ -33,7 +33,7 @@ public class StudentRepository {
         return students.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(students);
     }
 
-    public Optional<List<Student>> findSTudentsByInterestId(Integer id) throws SQLException {
+    public Optional<List<Student>> findByInterestId(Integer id) throws SQLException {
         String sql = SqlConstants.FIND_STUDENTS_BY_INTERESTS;
         log.info("script={}", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_FIND_BY_ID;

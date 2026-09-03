@@ -1,7 +1,6 @@
 package org.university.repository.mapper.course;
 
 import org.university.domain.model.Course;
-import org.university.domain.model.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

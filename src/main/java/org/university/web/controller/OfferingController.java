@@ -7,7 +7,6 @@ import org.university.service.OfferingService;
 import org.university.web.dto.offering.RequestOfferingDto;
 import org.university.web.dto.offering.ResponseOfferingDto;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;

@@ -1,6 +1,5 @@
 package org.university.repository.mapper.student;
 
-import org.university.domain.model.Professor;
 import org.university.domain.model.Student;
 
 import java.sql.ResultSet;

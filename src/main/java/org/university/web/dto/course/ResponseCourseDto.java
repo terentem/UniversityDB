@@ -1,7 +1,6 @@
 package org.university.web.dto.course;
 
 import org.university.domain.model.Course;
-import org.university.domain.model.Student;
 
 public record ResponseCourseDto(
         Integer id,

@@ -31,6 +31,10 @@ public class StudentService {
         }
     }
 
+    public List<Student> getByInterestId(Integer id) throws SQLException {
+        return repository.findByInterestId(id).orElse(Collections.emptyList());
+    }
+
     public List<Student> create(RequestStudentDto studentDto) throws SQLException {
         return repository.create(studentDto).orElse(Collections.emptyList());
     }

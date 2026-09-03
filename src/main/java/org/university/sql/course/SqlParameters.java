@@ -1,7 +1,6 @@
 package org.university.sql.course;
 
 import org.university.web.dto.course.RequestCourseDto;
-import org.university.web.dto.student.RequestStudentDto;
 
 public record SqlParameters(Integer id,
                             String courseCode,

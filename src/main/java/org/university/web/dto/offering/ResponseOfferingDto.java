@@ -1,9 +1,6 @@
 package org.university.web.dto.offering;
 
 import org.university.domain.model.Offering;
-import org.university.domain.model.Student;
-
-import java.time.LocalDate;
 
 public record ResponseOfferingDto(
         int id,

@@ -3,11 +3,8 @@ package org.university.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Course;
-
 import org.university.repository.CourseRepository;
-
 import org.university.web.dto.course.RequestCourseDto;
-
 
 import java.sql.SQLException;
 import java.util.Collections;

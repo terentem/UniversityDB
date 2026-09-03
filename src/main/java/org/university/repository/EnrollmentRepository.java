@@ -3,8 +3,6 @@ package org.university.repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Enrollment;
-
-
 import org.university.domain.model.OfferingStudent;
 import org.university.repository.mapper.enrollment.MapperConstants;
 import org.university.repository.mapper.enrollment.MapperExecutor;
@@ -12,7 +10,6 @@ import org.university.repository.mapper.enrollment.StatementValueSetter;
 import org.university.sql.enrollment.SqlConstants;
 import org.university.sql.enrollment.SqlParameters;
 import org.university.web.dto.enrollment.RequestEnrollmentDto;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +22,6 @@ import java.util.Optional;
 public class EnrollmentRepository {
 
     private static final Logger log = LoggerFactory.getLogger(EnrollmentRepository.class);
-
 
     public Optional<List<Enrollment>> create(RequestEnrollmentDto requestDto) throws SQLException {
         String sql = SqlConstants.INSERT;
@@ -43,16 +39,16 @@ public class EnrollmentRepository {
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_INSERT_BY_BUTCH;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
         SqlParameters paramsForStmtConfiguration = SqlParameters.forCreateByButch(offeringStudent);
-        int totalRowsAffected =executeBatchSql(sql, paramsForStmtConfiguration, stmtConfigurationAction);
+        int totalRowsAffected = executeBatchSql(sql, paramsForStmtConfiguration, stmtConfigurationAction);
         return Optional.of(new ArrayList<>());
     }
 
-    public Optional<List<Enrollment>> update(RequestEnrollmentDto requestDto, Integer id) throws SQLException {
+    public Optional<List<Enrollment>> update(RequestEnrollmentDto requestDto, Integer studentId, Integer offeringId) throws SQLException {
         String sql = SqlConstants.UPDATE;
         log.info("Виконується update: sql {} ", sql);
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_UPDATE;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
-        SqlParameters paramsForStmtConfiguration = SqlParameters.forUpdate(id,requestDto);
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forUpdate(studentId,offeringId, requestDto);
         List<Enrollment> enrollments = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return enrollments.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(enrollments);
     }
@@ -63,7 +59,7 @@ public class EnrollmentRepository {
         StatementValueSetter stmtConfigurationAction = SqlConstants.ACTION_FOR_DELETE_BY_ID;
         MapperExecutor mapperExecutor = MapperConstants.CONSTANT;
         log.info("Setters for sql-template= {}", stmtConfigurationAction);
-        SqlParameters paramsForStmtConfiguration = SqlParameters.forCompoundId(studentId,offeringId);
+        SqlParameters paramsForStmtConfiguration = SqlParameters.forCompoundId(studentId, offeringId);
         List<Enrollment> enrollments = executeSql(sql, paramsForStmtConfiguration, stmtConfigurationAction, mapperExecutor);
         return enrollments.isEmpty() ? Optional.of(new ArrayList<>()) : Optional.of(enrollments);
     }

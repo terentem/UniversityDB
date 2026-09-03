@@ -3,7 +3,6 @@ package org.university.repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Course;
-
 import org.university.repository.mapper.course.MapperConstants;
 import org.university.repository.mapper.course.MapperExecutor;
 import org.university.repository.mapper.course.StatementValueSetter;
