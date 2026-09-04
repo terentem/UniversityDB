@@ -2,7 +2,6 @@ package org.university.repository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.university.domain.model.Offering;
 import org.university.repository.mapper.offering.MapperConstants;
 import org.university.repository.mapper.offering.MapperExecutor;
@@ -10,7 +9,6 @@ import org.university.repository.mapper.offering.StatementValueSetter;
 import org.university.sql.offering.SqlConstants;
 import org.university.sql.offering.SqlParameters;
 import org.university.web.dto.offering.RequestOfferingDto;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

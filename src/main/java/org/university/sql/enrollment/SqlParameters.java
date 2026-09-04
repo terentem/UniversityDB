@@ -55,15 +55,17 @@ public record SqlParameters(Integer interestId,
     }
 
     public static SqlParameters forUpdate(
-            Integer id,
+            Integer studentId,
+            Integer offeringId,
             RequestEnrollmentDto dto
     ) {
         return new SqlParameters(
-                id,
-                dto.studentId(),
-                dto.offeringId(),
+                null,
+                studentId,
+                offeringId,
                 dto.grade(),
                 null
         );
     }
+
 }

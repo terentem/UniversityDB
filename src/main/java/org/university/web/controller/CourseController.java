@@ -3,13 +3,9 @@ package org.university.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.domain.model.Course;
-
 import org.university.service.CourseService;
-
 import org.university.web.dto.course.RequestCourseDto;
 import org.university.web.dto.course.ResponseCourseDto;
-
-
 
 import java.io.IOException;
 import java.sql.SQLException;
