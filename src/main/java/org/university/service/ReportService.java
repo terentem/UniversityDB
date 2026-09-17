@@ -3,6 +3,9 @@ package org.university.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.repository.ReportRepository;
+import org.university.web.dto.report.ReportDtoMapper;
+import org.university.web.dto.report.RequestReportDto;
+import org.university.web.dto.report.ResponseReportDto;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,8 +22,8 @@ public class ReportService {
         this.repository = repository;
     }
 
-    public List<Map<String, String>> doReport(String reportTitle, Map<String, String[]> queryParameters) throws SQLException {
-        return repository.doReport(reportTitle, queryParameters);
+    public List<ResponseReportDto> doReport(String reportTitle, RequestReportDto requestReportDto) throws SQLException {
+        return repository.doReport(reportTitle, requestReportDto);
     }
 
 }

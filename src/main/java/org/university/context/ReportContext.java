@@ -3,20 +3,22 @@ package org.university.context;
 
 import org.university.repository.ReportRepository;
 import org.university.service.ReportService;
+import org.university.sql.report.PreparedStatementCreator;
 import org.university.web.controller.ReportController;
 
-public class ReportContext {
+import java.sql.SQLException;
 
-    ReportRepository repository = new ReportRepository();
+public class ReportContext {
+    PreparedStatementCreator preparedStatementCreator = new PreparedStatementCreator();
+    ReportRepository repository = new ReportRepository(preparedStatementCreator);
     ReportService service = new ReportService(repository);
     ReportController controller = new ReportController(service);
 
-    public ReportRepository getRepository() {
-        return repository;
+    public ReportContext() throws SQLException {
     }
 
-    public ReportService getReportService() {
-        return service;
+    public ReportRepository getRepository() {
+        return repository;
     }
 
     public ReportController getReportController() {

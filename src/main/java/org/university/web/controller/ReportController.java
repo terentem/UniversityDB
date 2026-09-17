@@ -3,6 +3,8 @@ package org.university.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.university.service.ReportService;
+import org.university.web.dto.report.RequestReportDto;
+import org.university.web.dto.report.ResponseReportDto;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,8 +21,8 @@ public class ReportController {
         this.reportService = reportService;
     }
 
-    public List<Map<String, String>> doReport(String reportTitle, Map<String, String[]> queryParameters) throws IOException, SQLException {
-        List<Map<String, String>> result = reportService.doReport(reportTitle, queryParameters);
+    public List<ResponseReportDto> doReport(String reportTitle, RequestReportDto requestReportDto) throws IOException, SQLException {
+        List<ResponseReportDto> result = reportService.doReport(reportTitle, requestReportDto);
         log.info("GET reply  {}", result);
         return result;
     }

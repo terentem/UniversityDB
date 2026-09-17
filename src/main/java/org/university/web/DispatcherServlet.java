@@ -16,6 +16,9 @@ import org.university.web.dto.offering.RequestOfferingDto;
 import org.university.web.dto.offering.ResponseOfferingDto;
 import org.university.web.dto.professor.RequestProfessorDto;
 import org.university.web.dto.professor.ResponseProfessorDto;
+import org.university.web.dto.report.ReportDtoMapper;
+import org.university.web.dto.report.RequestReportDto;
+import org.university.web.dto.report.ResponseReportDto;
 import org.university.web.dto.student.RequestStudentDto;
 import org.university.web.dto.student.ResponseStudentDto;
 import org.university.web.utilities.ResponseWriter;
@@ -100,7 +103,9 @@ public class DispatcherServlet extends HttpServlet {
                 case "/reports" -> {
                     String pathVariable = getStringPathVariable(request.getPathInfo());
                     log.info(ENTER_LOG_MSG, "/reports", pathVariable, "not expected");
-                    List<Map<String, String>> reportResult = reportController.doReport(pathVariable, queryParameters);
+                    RequestReportDto requestReportDto= ReportDtoMapper.mapToRequestDto(pathVariable,queryParameters);
+                    log.info("RequestReportDto={}",requestReportDto);
+                    List<ResponseReportDto> reportResult = reportController.doReport(pathVariable, requestReportDto);
                     responseStatus = reportResult.isEmpty() ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK;
                     ResponseWriter.responseSender(reportResult, responseStatus, response);
                     log.info(EXIT_LOG_MSG, "/reports", reportResult, (System.nanoTime() - logStart) / 1_000_000);
