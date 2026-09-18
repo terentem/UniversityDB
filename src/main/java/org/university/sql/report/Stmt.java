@@ -13,16 +13,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreparedStatementCreator {
-    private static final Logger log = LoggerFactory.getLogger(PreparedStatementCreator.class);
+public class Stmt {
+    private static final Logger log = LoggerFactory.getLogger(Stmt.class);
 
-    public PreparedStatementCreator() throws SQLException {
+    public Stmt() throws SQLException {
     }
 
-    public  PreparedStatement createStmt(String sql, Connection conn, RequestReportDto requestReportDto, String orderTitle) throws SQLException {
+    public  PreparedStatement createStmt( Connection conn, RequestReportDto requestReportDto, String reportTitle) throws SQLException {
+        SqlScripts config = SqlScripts.getById(reportTitle);
+        String sql = config.getSql();
+        log.info("script={}", sql);
+        String reportEnumTitle = config.name();
+
         PreparedStatement stmt = conn.prepareStatement(sql);
         //set values to stmt according to reportId
-        switch (orderTitle) {
+        switch (reportEnumTitle) {
             case "STUDENTS_BY_OFFER_ID" -> {
             }
             case "STUDENTS_GROUPED_BY_OFFERING_ID_WITH_FILTER_GRADE" -> {

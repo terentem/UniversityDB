@@ -3,14 +3,14 @@ package org.university.context;
 
 import org.university.repository.ReportRepository;
 import org.university.service.ReportService;
-import org.university.sql.report.PreparedStatementCreator;
+import org.university.sql.report.Stmt;
 import org.university.web.controller.ReportController;
 
 import java.sql.SQLException;
 
 public class ReportContext {
-    PreparedStatementCreator preparedStatementCreator = new PreparedStatementCreator();
-    ReportRepository repository = new ReportRepository(preparedStatementCreator);
+    Stmt preparedStatementStmt = new Stmt();
+    ReportRepository repository = new ReportRepository(preparedStatementStmt);
     ReportService service = new ReportService(repository);
     ReportController controller = new ReportController(service);
 
