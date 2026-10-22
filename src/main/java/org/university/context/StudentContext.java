@@ -7,7 +7,6 @@ import org.university.web.controller.StudentController;
 
 public class StudentContext {
 
-
     StudentRepository repository = new StudentRepository();
     StudentService studentService = new StudentService(repository);
     StudentController studentController = new StudentController(studentService);
@@ -23,6 +22,4 @@ public class StudentContext {
     public StudentController getStudentController() {
         return studentController;
     }
-
-
 }
