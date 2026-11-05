@@ -24,6 +24,8 @@ public class ReportService {
 
     public List<ResponseReportDto> doReport(String reportTitle, RequestReportDto requestReportDto) throws SQLException {
         return repository.doReport(reportTitle, requestReportDto);
+    public List<Map<String, String>> doReport(String reportTitle, Map<String, String[]> queryParameters) throws SQLException {
+        return repository.doReport(reportTitle, queryParameters);
     }
 
 }
