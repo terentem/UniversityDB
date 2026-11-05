@@ -11,9 +11,10 @@ import org.university.web.DispatcherServlet;
 import org.university.web.controller.ProfessorController;
 
 import java.io.File;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws LifecycleException {
+    public static void main(String[] args) throws LifecycleException, SQLException {
         Tomcat tomcat = new Tomcat();
         tomcat.setPort(8080);
         Connector connector = tomcat.getConnector(); //

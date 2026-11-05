@@ -35,4 +35,27 @@ public class ResponseWriter {
             );
         }
     }
+
+    public static <T> void violationResponseSender(
+            T responseDto,
+            int responseStatus,
+            HttpServletResponse response) throws IOException {
+
+        response.setContentType("application/problem+json");
+        response.setCharacterEncoding("UTF-8");
+
+        try {
+            response.setStatus(responseStatus);
+            response.getWriter().write(
+                    ApplicationContext.objectMapper
+                            .writeValueAsString(responseDto)
+            );
+
+        } catch (IOException ex) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write(
+                    "{\"error\":\"" + ex.getMessage() + "\"}"
+            );
+        }
+    }
 }
